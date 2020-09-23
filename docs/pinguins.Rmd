@@ -1,0 +1,36 @@
+---
+title: "Por que os pinguins são legais?"
+author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+bibliography: ../citation/referencias.bib
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introdução
+
+Os dados não falam por si só e precisam de contexto [@dignazio_data_2020]. 
+Os pinguins antártico são legais e apresentam dimorfismo sexual [@gorman_ecological_2014].
+
+O objetivo desse trabalho é conhecer mais sobre os pinguins e ver o quanto eles podem ser diferentes. 
+
+## Material e Métodos
+
+Usaremos dados abertos coletados por @gorman_ecological_2014. 
+
+## Resultados
+
+Veja que interessamte essa tabela.
+
+Veja esse gráfico belo e colorido.
+
+## Discussão
+
+Mostramos como os pinguins podem ser legais e como os dados não significam nada sem contexto
+
+## Referências
