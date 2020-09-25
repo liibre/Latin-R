@@ -44,10 +44,12 @@ penguin_map <- ggplot() +
                                  y = lat, yend = lat + c(1, 0.7, 0))) +
   geom_point(data = coord, aes(x = lon, y = lat, shape = Island),
              size = 2) +
-  annotation_scale(location = "bl", width_hint = 0.5) + #,
-                   #pad_x = unit(0.1, "in"), pad_y = unit(0.2, "in")) +
+  annotation_scale(location = "bl", width_hint = 0.5,
+                   pad_x = unit(2.8, "in"),
+                   pad_y = unit(0.25, "in")) +
   annotation_north_arrow(location = "bl", which_north = "true",
-                         pad_x = unit(4, "in"),
+                         pad_x = unit(0.15, "in"),
+                         pad_y = unit(2.75, "in"),
                          style = north_arrow_fancy_orienteering) +
   xlab("Longitude") + ylab("Latitude") +
   theme_minimal()
