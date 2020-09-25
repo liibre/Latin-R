@@ -1,103 +1,157 @@
 ---
 title: "Escrevendo manuscritos acadêmicos usando rmarkdown"
-subtitle: "Latin-R"
+subtitle: "Latin-R 2020 - Conferencia Latinoamericana sobre Uso de R en Investigación y Desarrollo"
 author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
 institute: "¡liibre!"
 date: "30-09-2020"
 output:
   xaringan::moon_reader:
     lib_dir: libs
+    css: xaringan-themer.css
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
 ---
-background-image: url("https://raw.githubusercontent.com/rladies/starter-kit/master/stickers/rainbow-inclusive.png")
+background-image: url("figs/liibre.png")
 background-position: 98% 2%
 background-size: 150px
 
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include = FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#A70000",
+  secondary_color = "#ff0000",
+  white_color = "white",
+  inverse_header_color = "white",
+  inverse_background_color = "#A70000",
+  header_font_google = google_font("Roboto Condensed"),
+  text_font_google   = google_font("Roboto Condensed", "300", "300i"),
+  code_font_google   = google_font("Ubuntu Mono"), text_font_size = "25px"
+)
+```
+
+
 ## apresentação
 
-+ __Andrea Sánchez-Tapia__ Bióloga (UNAL - Colômbia),  
-MSc. Ecologia (UFRJ), Dra. em Botânica (ENBT-JBRJ). Usuária de R desde 2009. Ecologia quantitativa, informática da biodiversidade, ENM/SDM
+
++ __Andrea Sánchez-Tapia__ Bióloga (UNAL - Colômbia),
+MSc. Ecologia <br> (UFRJ), Dra. em Botânica (ENBT-JBRJ). Pós-Doc do Núcleo de <br> computação científica do JBRJ. Ecologia quantitativa, informática da biodiversidade, ENM/SDM
 
 
 + __Sara Ribeiro Mortara__
-Bióloga (ESALQ/USP), MSc. Ecologia e Conservação da Biodiversidade (UESC) e Dra. em Ecologia (USP). Usuária de R desde 2009. Modelagem estatística
+Bióloga (ESALQ/USP), MSc. Ecologia e Conservação da Biodiversidade (UESC) e Dra. em Ecologia (USP). Pequisadora do Instituto Internacional para a Sustentabilidade (IIS). Modelagem estatística
+
++ __¡liibre!__ Informática da biodiversidade, ciência aberta e reprodutível, ética na ciência de dados, [ciência de dados feminista](http://datafeminism.io/)
+
+---
+background-image: url("https://raw.githubusercontent.com/LatinR/identidad-visual-latinR/master/LatinR_hex_violeta.png")
+background-position: 25% 27%
+background-size: 203px
+
+## esta oficina 
+
+
+```{r, echo = FALSE, out.width= 150}
+knitr::include_graphics("figs/chevron.png")
+```
+
++ Manuscrito acadêmico: tese/dissertação, artigos acadêmicos, relatórios técnicos 
++ Fluxo de trabalho: como se organizar?*
++ Formatação de figuras e tabelas*
++ Citação*
++ Formatos finais, templates e modelos
+
+---
+## nosso fluxo de trabalho nunca é linear
+
++ Análise de dados é um processo iterativo
+
+--
+
++ A redação de manuscritos também!
+
+--
+
++ A gente está acostumada com word e similares... editores de texto __WYSIWYG - What you see is what you get__
+
+--
+
++ __Muito fácil errar__ no processo de copiar e colar
+
+--
+
++ O resultado gráfico é massomeno :/ 
+
+---
+
+## um fluxo de trabalho mais amigável
+
+--
+
++ Escrever _durante_ a análise de dados
+
+--
+
++ Integrar o código e o texto
+
+--
+
++ __Atualizar automaticamente__ se houver mudanças
+
+--
+
+
++ Utilizar as vantagens de trabalhar com __scripts + controle de versões (git)__ para dar transparência e controlar a qualidade da análise 
+
+--
+
++ Facilitar o processo de __citação__, __formatação__ e __submissão__
+
+---
+class: center
+
+
+#### "typesetting": formatação, composição tipográfica
+
+```{r, echo = F, out.width=700}
+knitr::include_graphics("figs/gut.jpeg")
+```
 
 
 ---
-## redação de manuscritos acadêmicos 
+## O pioneiro: <huge> $\LaTeX$ </huge>
 
-+ manuscritos acadêmicos: dissertações/teses/artigos 
-    - teses e revistas com _templates_
-    - teses e revistas com _templates_
-+ ciência aberta:
-    - metodologia aberta e reprodutível
-    - publicação em revistas de acesso livre
-+ vantagens:
-    - resultados diretamente do código controle de erros: valor diretamente do 
----
-# introdução a markdown 
++ Sistema de preparação de documentos com __alta qualidade tipográfica__
 
-
-
----
-# o projeto
-
-+ pasta de trabalho - `getwd()`
-
-
-
----
-## redigindo documentos
-
-`Dados > Análise >` __`Redação`__
-
-+ Usar valores no texto: "A média de altura foi `crtl+c` `ctrl+v` m"
 --
 
-+ Percebe um erro
++ Baseado em __arquivos de texto__ (`.tex`)
+
 --
 
-+ Refaz as análises ___teoricamente_ isto não é mais um problema porque a gente tem um script__
++ Pode ser usado em [__controle de versões__]() como `git`
+
 --
 
-+ Copia e cola as figuras...
++ Lida corretamente com __notação__ matemática, científica, algebraica etc.
+
 --
 
-+ Perde __muito tempo__ configurando as figuras `¬¬`...
++ Muito poderoso com paginação e posicionamento de figuras
+
 --
 
-+ RECopia e REcola os valores corrigidos no texto...
++ Arquivos de $\LaTeX$ podem ser __submetidos__ como manuscritos para algumas revistas
+
 --
 
-+ Percebe um erro...
++ __"_Templates_"__ de teses e dissertações em várias instituições
 
----
-## a gente está acostumada com word e similares...
-
-+ editores de texto __WYSIWYG - What you see is what you get__
---
-
-+ qualquer formatação mais "profissional" fica a cargo de desenhadores, diagramadores...
---
-
-+ a dificuldade é lidar com __paginação__, __tamanho/posicionamento__ de figuras, __fórmulas__ e com o __fluxo do texto__
-
----
-## $\LaTeX$
-
-+ Sistema de preparação de documentos com __alta qualidade tipográfica__ 
---
-
-+ Lida corretamente com notação matemática, científica, algebraica etc. 
---
-
-+ Baseado em arquivos de texto
---
-
-+ __não é WYSIWYG__ precisa portanto de marcar de alguma maneira o formato: marcações (_markup_)
 
 ---
 ## marcações de $\LaTeX$
@@ -119,40 +173,18 @@ $\textbf{negrito}$
 $\texttt{codigo}$
 ]
 
-+ Muito poderoso com fórmulas e posicionamento de figuras
 
----
-
-## vantagens de usar $\LaTeX$
-
-+ Output maravilhoso <3
-
-+ Pode ser usado em [__controle de versões__]() como `git` 
-
-+ Arquivos de $\LaTeX$ podem ser __submetidos__ como manuscritos para algumas revistas
-
-+ __Templates__ de teses e dissertações em várias instituições
-
-+ Outros formatos: apresentações de __beamer__
-
-+ Dá para incluir código de R, que o código seja executado e que o output do código entre no documento (__Sweave__)
-
-
----
-class: center, middle
-
-## markdown e rmarkdown
 
 ---
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1024px-Markdown-mark.svg.png)
 background-size: 20%
 background-position: 90% 80%
 
-## markdown é $\LaTeX$ sem esteroides - e para muitas coisas isso é suficiente
+## markdown é mais simples do que $\LaTeX$ - e para muitas coisas isso é suficiente
 
 
 + Baseado em html, comandos relativamente simples
-+ Arquivos de texto com extensão `.md` 
++ Arquivos de texto com extensão `.md`
 + Facilmente "parseado" por várias plataformas - inclusive GitHub __README.md__
 
 ---
@@ -161,50 +193,66 @@ background-position: 90% 80%
 .pull-left[
 `texto simples`  
 `__negrito__` e `**negrito**`  
-`superscript^2^`    
-`~~strikethrough~~`   
-`[link](www.rstudio.com)`
+`superscript^2^`  
+`~~tachado~~`  
+`[link](www.rstudio.com)`  
+<br>
 `# Titulo 1`  
+<br>
 `## Titulo 2`  
 ]
 
 .pull-right[
 texto simples  
 __negrito__  e **negrito**  
-superscript<sup>2</sup>    
-~~strikethrough~~   
-[link](www.rstudio.com) 
+superscript<sup>2</sup>  
+~~tachado~~  
+[link](www.rstudio.com)  
 # Titulo 1  
 ## Titulo 2  
 ]
 </small>
 ---
-## marcações de markdown e rmarkdown
+## marcações de markdown
 
 <small>
 .pull-left[
 `+ lista sem numerar`  
-`+ lista sem numerar`
+`+ lista sem numerar`  
 
 `1. lista numerada`  
-`1. lista numerada`
+`1. lista numerada`  
 ]
 
 .pull-right[
 + lista sem numerar  
-+ lista sem numerar
++ lista sem numerar  
 
-1. lista numerada
-1. lista numerada
+1. lista numerada  
+1. lista numerada  
 
 ]
 
 </small>
 --
 
-`<center> isto aqui fica centrado </center>`  
+### tags de html:
+
+`<center> isto aqui fica centrado </center>`
 <center> isto aqui fica centrado </center>
 
+
+---
+
+## literate programming (programação "letrada")
+
++ [Knuth 1984](http://www.literateprogramming.com/knuthweb.pdf) 
+
++ Integrar texto e código
+
+ + $\LaTeX$ e R: __SWEAVE__ -> "tricotar"
+ 
+ + markdown e R: rmarkdown (.Rmd). __knitr__ -> "tricotar" :P
 
 ---
 background-image: url(https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png)
@@ -220,7 +268,7 @@ background-position: 90% 80%
 + em "chunks" de código visíveis ou invisíveis (`echo = TRUE/FALSE`) ou na mesma linha ( `r` `nrow(cars)`)
 
 ---
-## vantagens de usar rmakdown
+## vantagens de usar rmarkdown
 
 + mais fácil que $\LaTeX$
 
@@ -233,13 +281,6 @@ background-position: 90% 80%
 + novos pacotes relacionados: __blogdown__, __pagedown__, __bookdown__, __thesisdown__
 
 ---
-## esta oficina
-
-- markdown é fácil e conveniente
-Como fazer o melhor uso possível dele para readigir manuscritos acadêmicos?
-
-
----
 class: middle, center
 
 # rmarkdown
@@ -247,17 +288,17 @@ class: middle, center
 ## estrutura de um documento de rmarkdown
 
 + extensão `.Rmd`
-+ um cabeçalho de metadados (chamado de __YAML__), com opções, entre outras o título, o autor, a data e o tipo de output que você quer. 
-+ No cabeçalho `YAML` outras funções poderão ser incluídas posteriormente, inclusive a citação de artigos. 
++ um cabeçalho de metadados (chamado de __YAML__), com opções, entre outras o título, o autor, a data e o tipo de output que você quer.
++ No cabeçalho `YAML` outras funções poderão ser incluídas posteriormente, inclusive a citação de artigos.
 
 ---
 ## formatando texto no (r)markdown
 
 + Títulos com hashtags (`#` ,`##`)
 + Texto normal
-+ Listas 
++ Listas
 + Formato (negrito, cursiva, código)
-+ __Entre parágrafos precisa ter uma linha vazia__ 
++ __Entre parágrafos precisa ter uma linha vazia__
 + Ou __quebra de linha__ com dois espaços no final
 
 ---
@@ -279,21 +320,13 @@ __remedy__ é instalado como um __Addin__ de RStudio
 ---
 ## adicionando "chunks" de código de R
 
-+ o código de R se encontra entre __acentos graves triplos__ 
++ o código de R se encontra entre __acentos graves triplos__
 
 + o primeiro _chunk_ tem as opções gerais que serão usadas
 
 + algumas opçoes básicas: `eval`, `echo`, `fig.width`, `message`, `warning`
 
 + dá para botar nas opções gerais ou em cada chunk, e contradizer a opção geral (override)
-
----
-## vamos criar
-
-+ Arquivo novo -> Rmarkdown
-+ Bote um título e seu nome, selecione html
-+ Faça click em `knitr` e salve o arquivo na pasta [docs]() de seu projeto
-+ Compare o que foi knittado com o arquivo original... 
 
 ---
 ## o fluxo de trabalho para a escrita de um manuscrito
@@ -309,7 +342,7 @@ __remedy__ é instalado como um __Addin__ de RStudio
 .pull-left[
 ### tese/dissertação
 + capítulos
-+ _outputs_ 
++ _outputs_
 ]
 
 .pull-right[
@@ -326,7 +359,7 @@ __remedy__ é instalado como um __Addin__ de RStudio
 
 + Nas opções para knittar __Knit directory__:
   + Document directory: acesso de tudo via "pasta do lado" `../data` - __é melhor fazer isto porque fica consistente ao longo do texto mas isto pode mudar caso a caso__.
-  
+
 ---
 ## incluir plots
 
@@ -345,10 +378,10 @@ etc.
 
 Formato padrão
 
-`|   a|   b|   c|`  
-`|-:|-:|-:|`  
-`|   1|   2|   3|`  
-`|   2|   3|   4|`  
+`|   a|   b|   c|`
+`|-:|-:|-:|`
+`|   1|   2|   3|`
+`|   2|   3|   4|`
 
 
 |  a|  b|  c|
@@ -363,7 +396,7 @@ Formato padrão
 
 + Para gerar tabelas desde os chunks de R:
     + a função `kable` de knitr e o pacote `kableExtra` que dá mais opções __[(link)](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)__
-    
+
 + Para incluir qualquer tipo de output (por exemplo uma tabela de anova), o pacote __pander__ __[(link)](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)__
 
 
@@ -385,21 +418,22 @@ knitr::kable(head(cars))
 ---
 class: center, middle
 
-# Gestão de bibliografia em markdown
+# Gestão de bibliografia em markdown (e $LaTeX$)
 ---
 ## gestão de bibliografia
 
 + [BibTeX](http://www.bibtex.org/) e o formato: `.bib`
++ um arquivo de __estilo de citação__: `nature.csl` 
 
-+ No __YAML__: 
-  + `bibliography: refs.bib` 
++ Se `refs.bib` e `estilo.csl` estiverem na pasta `/citation`:
 
-+ Na pasta de trabalho (preferivelmente em `/relatorio/refs.bib`)
-  + o arquivo `refs.bib` 
-  + um __estilo de citação__  arquivo .csl 
++ No __YAML__:
+  + `bibliography: ../citation/refs.bib`
+  + `csl: ../citation/nature.csl`
+
 
 ---
-## gestão de bibliografia 
+## gestão de bibliografia
 
 + __Como criar a bibliografia?__ Gestor de bibliografias? Zotero? Mendeley?
 
@@ -408,11 +442,11 @@ class: center, middle
 + Citação automática
 
 ---
+class: bottom
 background-image: url("https://www.zotero.org/static/images/theme/zotero-logo.1519224037.svg")
 background-size: 20%
-background-position: 90% 0%
+background-position: 90% 5%
 
-#  
 
 + Gestor de bibliografia de código aberto
 --
@@ -454,7 +488,7 @@ background-position: 90% 0%
 ---
 ## citação no rmarkdown
 
-+ No __texto__, a citação é marcada assim: `@sobrenome_palavrachave_ano` 
++ No __texto__, a citação é marcada assim: `@sobrenome_palavrachave_ano`
   + Ex. `[@tukey_exploratory_1977]` -> (Tukey, 1977)
   + Ex. `@tukey_exploratory_1977` -> Tukey (1977)
   + Ex. `[@tukey_exploratory_1977, @zuur_protocol_2010]` -> (Tukey 1977, Zuur et al. 2010)
@@ -467,7 +501,7 @@ background-position: 90% 0%
 background-image: url("./figs/0newcollection.png")
 background-size: 100%
 
-#### Eu crio a coleção
+#### Criar a coleção
 
 ---
 background-image: url("./figs/1tukey_amazon.png")
@@ -524,25 +558,21 @@ background-size: 100%
 ---
 ## diferentes estilos de citação
 
-oikos, nature, jvs, ecology-letters, vancouver 
+oikos, nature, jvs, ecology-letters, vancouver
 
 ---
-class: middle, center
-
-## exportando arquivos de rmarkdown para word
+## exportando `.Rmd` para word
 ### spoiler: tudo funciona igual mas o padrão de word é horrível
 
----
-## um documento de referência pro estilo
-
-+ __no yaml__: 
++ um documento de referência pro estilo: template_intro.docx __com os estilos desejados modificados__
++ __no cabeçalho YAML__:
 
 ```
 word_document:
     reference_docx: template_intro.docx
 ```
 
-+ vamos explorar várias opções desse documento de template
++ alguns problemas com tabelas, páginas horizontais, checar bem!
 
 ---
 ## referências
@@ -551,4 +581,15 @@ word_document:
 https://rmarkdown.rstudio.com
 https://peerj.com/preprints/3159/
 https://bookdown.org/yihui/rmarkdown/interactive-documents.html
+
+---
+# ¡Gracias! 
+
+`r icon::fa("twitter", colour = "#562457")` [@mortarasara](https://twitter.com/mortarasara) 
+`r icon::fa("twitter", colour = "#562457")` [@SanchezTapiaA](https://twitter.com/SanchezTapiaA) 
+`r icon::fa("twitter", colour = "#562457")` [@rladiesrio](https://twitter.com/rladiesrio) 
+
+`r icon::fa("github", colour = "#562457")` `r icon::fa("gitlab", colour = "#562457")` `r icon::fa("bitbucket", colour = "#562457")` [andreasancheztapia](http://github.com/andreasancheztapia) 
+
+`r icon::fa("r-project", colour = "#562457")` [R-Ladies+ Rio de Janeiro](https://www.meetup.com/pt-BR/rladies-rio/)
 
