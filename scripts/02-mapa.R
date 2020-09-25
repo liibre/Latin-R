@@ -1,4 +1,3 @@
-
 # Script para fazer um- bônus :)
 
 # Bibliotecas necessárias
@@ -25,7 +24,7 @@ head(penguins)
 ata <- readRDS("data/GADM/ATA_0_sf.rds")
 
 # Coordenadas das ilhas
-coord <- data.frame(Island = c('Biscoe', 'Torgersen', 'Dream'),
+coord <- data.frame(Ilha = c('Biscoe', 'Torgersen', 'Dream'),
                     lon = c(-63.766667, -64.066667, -64.216667),
                     lat = c(-64.800000, -64.766667, -64.716667))
 
@@ -33,6 +32,11 @@ coord <- data.frame(Island = c('Biscoe', 'Torgersen', 'Dream'),
 adelie <- "figs/adelie.png"
 chinstrap <- "figs/chinstrap.png"
 gentoo <- "figs/gentoo.png"
+
+# Objeto para cores das espécies
+especies <-  data.frame(dummy = c(0, 0, 0),
+                        cores = c("darkorange", "purple", "cyan4"),
+                        especie = c("P. adelie", "P. chinstrap", "P. gentoo"))
 
 # Criando o mapa ---------------------------------------------------------------
 penguin_map <- ggplot() +
@@ -42,16 +46,21 @@ penguin_map <- ggplot() +
   coord_sf(xlim = c(-66, -60), ylim = c(-65, -63)) +
   geom_segment(data = coord, aes(x = lon,  xend = lon - c(0, 0.7, 1),
                                  y = lat, yend = lat + c(1, 0.7, 0))) +
-  geom_point(data = coord, aes(x = lon, y = lat, shape = Island),
+  geom_point(data = coord, aes(x = lon, y = lat, shape = Ilha),
              size = 2) +
   annotation_scale(location = "bl", width_hint = 0.5,
-                   pad_x = unit(2.8, "in"),
+                   pad_x = unit(2.75, "in"),
                    pad_y = unit(0.25, "in")) +
   annotation_north_arrow(location = "bl", which_north = "true",
                          pad_x = unit(0.15, "in"),
-                         pad_y = unit(2.75, "in"),
+                         pad_y = unit(2.72, "in"),
                          style = north_arrow_fancy_orienteering) +
   xlab("Longitude") + ylab("Latitude") +
+  geom_point(aes(x = dummy, y = dummy, color = especie), data = especies) +
+  scale_color_manual(values = especies$cores, name = "Espécie",
+                     labels = c(expression(italic("P. adelie")),
+                                expression(italic("P. chinstrap")),
+                                expression(italic("P. gentoo")))) +
   theme_minimal()
 
 penguin_map
