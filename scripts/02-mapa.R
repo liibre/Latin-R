@@ -44,10 +44,10 @@ penguin_map <- ggplot() +
                                  y = lat, yend = lat + c(1, 0.7, 0))) +
   geom_point(data = coord, aes(x = lon, y = lat, shape = Island),
              size = 2) +
-  annotation_scale(location = "bl", width_hint = 0.5,
-                   pad_x = unit(0.1, "in"), pad_y = unit(0.2, "in")) +
+  annotation_scale(location = "bl", width_hint = 0.5) + #,
+                   #pad_x = unit(0.1, "in"), pad_y = unit(0.2, "in")) +
   annotation_north_arrow(location = "bl", which_north = "true",
-                         pad_x = unit(6, "in"), pad_y = unit(0.5, "in"),
+                         pad_x = unit(4, "in"),
                          style = north_arrow_fancy_orienteering) +
   xlab("Longitude") + ylab("Latitude") +
   theme_minimal()
@@ -60,13 +60,11 @@ all_map <- ggdraw() +
   draw_image(adelie,  x = -0.12, y = 0.1, scale = .1) +
   draw_image(gentoo,  x = -0.12, y = 0.01, scale = .1) +
   draw_image(adelie,  x = -0.25, y = 0, scale = .1) +
-  draw_image(adelie,  x = -0.33, y = -0.16, scale = .1) +
-  draw_image(chinstrap,  x = -0.33, y = -0.25, scale = .1)
+  draw_image(adelie,  x = -0.31, y = -0.175, scale = .1) +
+  draw_image(chinstrap,  x = -0.31, y = -0.265, scale = .1)
 
-all_map # so fica bom no plot zoom
-
-# Salvando o mapa # fail
-png("figs/mapa_pinguins.png", res = 300, width = 2000, height = 1000)
+# Salvando o mapa
+png("figs/mapa_pinguins.png", res = 300, width = 2000, height = 1300)
 all_map
 dev.off()
 
