@@ -3,29 +3,41 @@ title: "Por que os pinguins são legais?"
 author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 bibliography: ../citation/referencias.bib
+csl: ../citation/journal-of-ecology.csl
 output:
   html_document:
     df_print: paged
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## Resumo
+
+Insira aqui o resumo que vai convencer as pessoas que estão prestes a ler o seu manuscrito a continuar. 
 
 ## Introdução
 
 Os dados não falam por si só e precisam de contexto [@dignazio_data_2020]. 
-Os pinguins antártico são legais e apresentam dimorfismo sexual [@gorman_ecological_2014].
+Os pinguins antárticos são legais e apresentam dimorfismo sexual [@gorman_ecological_2014].
 
 O objetivo desse trabalho é conhecer mais sobre os pinguins e ver o quanto eles podem ser diferentes. 
 
 ## Material e Métodos
 
-Usaremos dados abertos coletados por @gorman_ecological_2014. 
+Usaremos dados abertos coletados por @gorman_ecological_2014 disponíveis no pacote de R palmerpenguins [@allisonmhorst_allisonhorst_2020].
+
+Os dados são referentes a medidas de 344 indivíduos de três espécies de pinguins do gênero *Pygoscelis*. As espécies ocorrem em três ilhas do arquipélago Palmer na Antártica. A espécie *P. adelie* é a única que ocorre nas três ilhas e co-ocorre com as demais espécies (Figura 1). 
+
+```{r, fig.cap = "Figura 1. Localização das três espécies de pinguins nas três ilhas do arquipélago Palmer."}
+knitr::include_graphics("../figs/mapa_pinguins.png")
+```
+
 
 ## Resultados
 
-Veja que interessamte essa tabela.
+Veja que interessante essa tabela.
 
 Veja esse gráfico belo e colorido.
 
