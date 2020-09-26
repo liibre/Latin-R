@@ -1,4 +1,4 @@
-# Script para fazer um- bônus :)
+# Script para fazer um mapa de bônus :)
 
 # Bibliotecas necessárias
 library(palmerpenguins)
@@ -13,15 +13,18 @@ library(magick)
 head(penguins)
 
 ## Download do Shapefile da Antartica direto do GADM
-# cod <- "ATA" # Codigo iso3 do pais Antarctica
-# level <- 0 # para download do maior nivel do pais (sem subdivisoes)
-# file <- paste0(cod, "_", level, "_sf.rds")
-# destfile <- paste0("./data/GADM/", file)
-# # Faz o download e salva na pasta data/GADM
-# url <- paste0("https://biogeo.ucdavis.edu/data/gadm3.6/Rsf/gadm36_", file)
-# download.file(url, destfile = destfile)
+cod <- "ATA" # Codigo iso3 do pais Antarctica
+level <- 0 # para download do maior nivel do pais (sem subdivisoes)
+file <- paste0(cod, "_", level, "_sf.rds")
+destfile <- paste0("./data/GADM/", file)
+# Se o arquivo não foi baixado, faz o download e salva na pasta data/GADM
+if (!file.exists(destfile)) {
+  url <- paste0("https://biogeo.ucdavis.edu/data/gadm3.6/Rsf/gadm36_", file)
+  download.file(url, destfile = destfile)
+}
+
 # Carregando o objeto para o R
-ata <- readRDS("data/GADM/ATA_0_sf.rds")
+ata <- readRDS(destfile)
 
 # Coordenadas das ilhas
 coord <- data.frame(Ilha = c('Biscoe', 'Torgersen', 'Dream'),
@@ -41,7 +44,7 @@ especies <-  data.frame(dummy = c(0, 0, 0),
 # Criando o mapa ---------------------------------------------------------------
 penguin_map <- ggplot() +
   geom_sf(data = ata) +
-#  coord_sf(crs = polar_proj) +
+  #  coord_sf(crs = polar_proj) +
   #coord_sf(xlim = c(-68, -55), ylim = c(-66, -60)) +
   coord_sf(xlim = c(-66, -60), ylim = c(-65, -63)) +
   geom_segment(data = coord, aes(x = lon,  xend = lon - c(0, 0.7, 1),
@@ -75,7 +78,7 @@ all_map <- ggdraw() +
   draw_image(chinstrap,  x = -0.31, y = -0.265, scale = .1)
 
 # Salvando o mapa
-png("figs/mapa_pinguins.png", res = 300, width = 2000, height = 1300)
+png("figs/figura_01.png", res = 300, width = 2000, height = 1300)
 all_map
 dev.off()
 
