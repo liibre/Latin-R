@@ -1,5 +1,5 @@
 ---
-title: "Por que os pinguins são legais?"
+title: "Automatizar partes chatas do manuscrito para poder focar na escrita: um exercício usando dados de pinguins"
 author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 bibliography: ../citation/referencias.bib
@@ -17,22 +17,24 @@ library(kableExtra)
 
 ## Resumo
 
-Insira aqui o resumo que vai convencer as pessoas que estão prestes a ler o seu manuscrito a continuar. 
+Valerá sim a pena continuar a ler o manuscrito. 
 
 ## Introdução
 
-Os dados não falam por si só e precisam de contexto [@dignazio_data_2020]. 
-Os pinguins antárticos são legais e apresentam dimorfismo sexual [@gorman_ecological_2014].
+Escrever não é fácil e ninguém quer perder tempo inserindo tabelas e figuras em editores de texto convencionais. Por isso, o uso de ferramentas que permitem a automatização em arquivos de texto é essencial. A curva de aprendizado não é tão rápida quanto em um editor de texto convencional, mas acredite, valerá a pena. 
 
-O objetivo desse trabalho é apenas mostrar como fazer um manuscrito usando rmarkdown. Os pinguins estão aqui porque eles são legais e podem ser diferentes dependendo da espécie e do sexo.
+O objetivo desse trabalho é apenas mostrar como fazer um manuscrito usando rmarkdown. Os pinguins estão aqui porque eles são legais e podem ser diferentes dependendo da espécie e do sexo [@gorman_ecological_2014]. Importante lembrar que os dados não falam por si só e precisam de contexto [@dignazio_data_2020]. 
+
 
 ## Material e Métodos
 
-Usaremos dados abertos coletados por @gorman_ecological_2014 disponíveis no pacote de R palmerpenguins [@allisonmhorst_allisonhorst_2020].
+Para a redação não há outra saída. Você irá precisar de café (ou sua outra bebida favorita), uma boa pergunta embasada no contexto teórico da sua área de estudo, dados e um bons argumentos para discutir o que você encontrou. Esta não é uma oficina sobre redação científica. 
+
+Neste exercício, usaremos dados abertos coletados por @gorman_ecological_2014 disponíveis no pacote de R palmerpenguins [@allisonmhorst_allisonhorst_2020] para mostrar como inserir tabelas e figuras em um documento de rmarkdown.
 
 Os dados são referentes a medidas de 344 indivíduos de três espécies de pinguins do gênero *Pygoscelis*. As espécies ocorrem em três ilhas do arquipélago Palmer na Antártica. A espécie *P. adelie* é a única que ocorre nas três ilhas e co-ocorre com as demais espécies (Figura 1). 
 
-```{r mapa, fig.cap = "Figura 1. Localização das três espécies de pinguins nas três ilhas do arquipélago Palmer."}
+```{r mapa, fig.cap = "Figura 1. Localização das três espécies de pinguins nas três ilhas do arquipélago Palmer porque um mapa pode fazer parecer mais profissional."}
 knitr::include_graphics("../figs/figura_01.png")
 ```
 
@@ -46,8 +48,7 @@ knitr::include_graphics("../figs/figura_02.png")
 
 ```
 
-
-Veja que interessante essa tabela.
+Veja que interessante essa tabela (Tabela 1). Notem que colocamos o nome das espécies em itálico usando a notação adicionando asterisco no início e fim dos nomes. 
 
 ```{r tabela}
 tabela <- read.csv("../output/tabela_01.csv")
@@ -64,6 +65,6 @@ tabela %>%
 
 ## Discussão
 
-Os pinguins são bonitinhos e parecem apresentar diferença entre os sexos. Não aprendemos muito mais sobre os pinguins, além deles serem legais porque os dados não significam quase nada sem contexto.
+Os pinguins são bonitinhos e parecem apresentar diferença entre os sexos. Não aprendemos muito mais sobre os pinguins porque os dados não significam quase nada sem contexto. Esperamos que vocês tenham perdido o medo e se convencido de que é preciso automatizar as partes chatas do manuscrito e focar naquilo que importa: a escrita em si.
 
 ## Referências
