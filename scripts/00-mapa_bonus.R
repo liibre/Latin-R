@@ -81,5 +81,3 @@ all_map <- ggdraw() +
 png("figs/figura_01.png", res = 300, width = 2000, height = 1300)
 all_map
 dev.off()
-
-

@@ -25,6 +25,7 @@ p1 <- penguins %>%
   labs(x = "Sexo", y = "Massa corpórea (g)") +
   theme_classic()
 
+# Exportando a figura em png
 png("figs/figura_02.png", res = 300, height = 700, width = 1200)
 p1
 dev.off()
@@ -51,4 +52,3 @@ for (i in 1:length(variables)) {
 
 # Exportando a tabela
 write.csv(table, "output/tabela_01.csv", row.names = FALSE)
-
