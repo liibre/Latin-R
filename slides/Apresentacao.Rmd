@@ -130,7 +130,7 @@ knitr::include_graphics("figs/gut.jpeg")
 
 
 ---
-## O pioneiro: <huge> $\LaTeX$ </huge>
+## o pioneiro: <huge> $\LaTeX$ </huge>
 
 + Sistema de preparação de documentos com __alta qualidade tipográfica__
 
@@ -148,7 +148,7 @@ knitr::include_graphics("figs/gut.jpeg")
 
 --
 
-+ Muito poderoso com paginação e posicionamento de figuras
++ Muito poderoso com __paginação__ e __posicionamento de figuras__
 
 --
 
@@ -169,7 +169,7 @@ background-position: 90% 5%
 
 ## markdown 
 
-+ é mais simples do que $\LaTeX$ - e para muitas coisas isso é suficiente
++ Mais simples do que $\LaTeX$ - e para muitas coisas isso é suficiente
 --
 
 + Baseado em arquivos de texto `.md`, formato de saída __HTML__
@@ -184,7 +184,7 @@ background-position: 90% 5%
 ### pandoc https://pandoc.org/
 --
 
-um canivete suiço: conversor entre __muitos__ tipos de arquivo  
+Um canivete suiço: conversor entre __muitos__ tipos de arquivo  
 
 
 ---
@@ -192,11 +192,11 @@ background-image: url(https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.
 background-size: 150px
 background-position: 98% 2%
 
-### queremos incluir código!
+## queremos incluir código!
 
 --
 
-+ _literate programming_ (programação "letrada", [Knuth 1984](http://www.literateprogramming.com/knuthweb.pdf))
++ _Literate programming_ (programação "letrada", [Knuth 1984](http://www.literateprogramming.com/knuthweb.pdf))
 
 --
 
@@ -229,7 +229,9 @@ background-position: 98% 2%
 
 __remedy__ é instalado como um __Addin__ de RStudio
 
-menu > ferramentas > modificar atalhos de teclado: 
+Pode modificar os atalhos de teclado para que fique mais fácil escrever: 
+
+`menu > ferramentas > modificar atalhos de teclado`
 
 + `ctrl + b` -> negrito
 + `ctrl + i` -> italico
@@ -241,36 +243,48 @@ menu > ferramentas > modificar atalhos de teclado:
 ---
 ## o fluxo de trabalho para a escrita de um manuscrito
 
-+ quando você aprende rmarkdown __quer knitar tudo__
++ Quando você aprende rmarkdown __quer knitar tudo__
 
-+ poder fazer ≠ dever fazer
++ Poder fazer ≠ dever fazer
 
-+ prós e contras
++ Alguns contras de knitar tudo:
 
----
-## o fluxo de trabalho para a escrita de um manuscrito
+    - você vai ter que knitar tudo toda vez que precisar mudar algo
+    - extrair uma figura que foi feita dentro de markdown é pouco prático
+    - você não pode trocar de plataforma de escrita facilmente (latex, word)
 
-+ análise (em R) -> figuras, tabelas, resultados
-+ texto
-+ formatação
-+ citação
++ Dica __¡liibre!__: separar a análise da redação
 
 ---
-## incluir plots
+## para incluir plots
 
 + gerar no chunk com código puro
+
 --
 
 + inserir uma figura externa:
+
+--
+
   + `![](/figs/fig.png)`
+
+--
+
   + html `<img src ---->`
-  + beamer `\includegraphics{}`
+
+--
+
+  + latex `\includegraphics{}`
+
+--
 
 #### O único que serve com todos os formatos é 
 
 ```
 *knitr::include_graphics(figura)
 ```
+
+(dentro de um chunk)
 
 ---
 ## incluir tabelas
@@ -299,27 +313,34 @@ Formato padrão
 ## incluir tabelas
 
 + Para gerar tabelas desde os chunks de R:
-    + a função `kable` de knitr e o pacote `kableExtra` que dá mais opções __[(link)](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)__
+    + a função `kable()` de __knitr__ e o pacote __[kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)__ que dá mais opções
 
-+ Para incluir qualquer tipo de output (por exemplo uma tabela de anova), o pacote __pander__ __[(link)](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)__
++ Para incluir qualquer tipo de output (por exemplo uma tabela de anova), o pacote __[pander](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)__
 
 
 
 ---
 class: center, middle
 
-# Gestão de bibliografia em rmarkdown (e $\LaTeX$)
+# Citação e gestão de bibliografias em rmarkdown (e $\LaTeX$)
 
 ---
 ## gestão de bibliografia
 
-+ __Como criar a bibliografia?__ Gestor de bibliografias? Zotero? Mendeley?
++ __Gestor de bibliografias__: armazenam as citações, (opcionalmente os arquivos das publicações) e assistem a citação e criação de bibliografias
+
 --
 
-+ Programas que armazenam as citações e opcionalmente os arquivos das publicações
++ __Mendeley__ e __Zotero__, EndNote, Reference Manager  
+
 --
 
-+ Formatação automática
++ Para citar em $\LaTeX$ e markdown: [BibTeX](http://www.bibtex.org/), formato: `.bib`
+
+--
+
++ Formatação automática: arquivo de __estilo de citação__ `*.csl` 
+
 
 ---
 background-image: url("https://www.zotero.org/static/images/theme/zotero-logo.1519224037.svg")
@@ -329,7 +350,7 @@ background-position: 90% 2%
 <br>
 <br>
 
-+ Gestor de bibliografia __de código aberto__
++ Gestor de bibliografia de código aberto
 --
 
 + Uma extensão no navegador faz _download_ da citação e do pdf se ele estiver disponível
@@ -358,27 +379,23 @@ background-position: 90% 2%
     + Exporta coleções em `.bib` e __as mantém atualizadas__
 
 ---
-## citação no markdown
-
-+ [BibTeX](http://www.bibtex.org/) e o formato: `.bib`
-
---
-
-+ um arquivo de __estilo de citação__: `nature.csl` 
-
---
+## para citar em documentos de __rmarkdown__
 
 + Se `refs.bib` e `estilo.csl` estiverem na pasta `/citation`:
 
 --
 
-+ Incluir o `.bib` e o `.csl` da bibliografia no yaml:
++ Incluir o `.bib` e o `.csl` da bibliografia no cabeçalho YAML do documento:
   + `bibliography: ../citation/refs.bib`
   + `csl: ../citation/nature.csl`
 
 --
 
 + Citar usando o formato: `[@sobrenome_primeirapalavra_ano]` (olhar no zotero ou no mendeley a __chave de citação__)
+
+--
+
++ um addin 
 
 ---
 ## citação no rmarkdown
@@ -393,95 +410,43 @@ background-position: 90% 2%
 + No final do texto são inseridas as referências completas
 
 ---
-background-image: url("./figs/0newcollection.png")
-background-size: 100%
+## usando zotero
 
-#### Criar a coleção
-
----
-background-image: url("./figs/1tukey_amazon.png")
-background-size: 100%
-
-#### Eu peguei a citação da Amazon...
-
----
-background-image: url("./figs/2salvando.png")
-background-size: 100%
-
-#### Click no ícone
-
----
-background-image: url("./figs/3app.png")
-background-size: 100%
-
-#### No app vejo o key
-
----
-background-image: url("./figs/4export.png")
-background-size: 100%
-
-#### Exporto a coleção
-
----
-background-image: url("./figs/5export.png")
-background-size: 100%
-
-#### BetterBibTeX - keep updated!
----
-background-image: url("./figs/6bib.png")
-background-size: 100%
-
----
-background-image: url("./figs/7csl.png")
-background-size: 100%
-
----
-background-image: url("./figs/7_bib_e_csl.png")
-background-size: 100%
----
-background-image: url("./figs/8cite.png")
-background-size: 100%
----
-background-image: url("./figs/8cite_big.png")
-background-size: 100%
----
-background-image: url("./figs/9opts.png")
-background-size: 100%
----
-background-image: url("./figs/10output.png")
-background-size: 100%
-
++ donwload de referências
++ cria a coleção
++ betterbibtex cria a chave de citação 
++ export, keep updated
++ csl 
 
 ---
 ## formatos finais requeridos (teses, artigos)
 
 + novos pacotes relacionados: __bookdown__, __thesisdown__, __rticles__
 
---
 
 ---
 # inevitável: exportando para .docx
 
-+ um documento de referência pro estilo: template_intro.docx __com os estilos desejados modificados__
++ um documento de referência pro estilo: "template.docx" com os estilos desejados modificados (à mão desde word)
 + __no cabeçalho YAML__:
 
 ```
 word_document:
-    reference_docx: template_intro.docx
+    reference_docx: template.docx
 ```
 
-+ alguns problemas com tabelas, páginas horizontais, checar bem!
++ __alguns problemas com tabelas, páginas horizontais, vão persistir__ checar bem!
 
 ---
 ## conclusões 
 
-- __resista a tentação__ de fazer um documento só com todo o código: scripts e outputs separados do documento. __flexibilidade__ no formato final.
+- __resista a tentação__ de fazer um documento só knitando o texto com todo o código: _scripts_ e _outputs_ separados do documento. __flexibilidade__ no formato final.
 
 --
 
 - entenda os __formatos finais requeridos__ e sua disponibilidade em diferentes plataformas
 
-
+--
 
 ---
 ## referências
