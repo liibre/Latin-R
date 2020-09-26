@@ -48,6 +48,8 @@ Bióloga (ESALQ/USP), MSc. Ecologia e Conservação da Biodiversidade (UESC) e D
 
 + __¡liibre!__ Informática da biodiversidade, ciência aberta e reprodutível, ética na ciência de dados, [ciência de dados feminista](http://datafeminism.io/)
 
++ R-Ladies Rio de Janeiro 
+
 ---
 background-image: url("https://raw.githubusercontent.com/LatinR/identidad-visual-latinR/master/LatinR_hex_violeta.png")
 background-position: 25% 27%
@@ -61,9 +63,9 @@ knitr::include_graphics("figs/chevron.png")
 ```
 
 + Manuscrito acadêmico: tese/dissertação, artigos acadêmicos, relatórios técnicos 
-+ Fluxo de trabalho: como se organizar?*
-+ Formatação de figuras e tabelas*
-+ Citação*
++ Fluxo de trabalho: como se organizar?__*__
++ Formatação de figuras e tabelas__*__
++ Citação__*__
 + Formatos finais, templates e modelos
 
 ---
@@ -82,6 +84,10 @@ knitr::include_graphics("figs/chevron.png")
 --
 
 + __Muito fácil errar__ no processo de copiar e colar
+
+--
+
++ __Paginação, formatação do documento e localização de figuras__ não são triviais ¬¬ 
 
 --
 
@@ -130,7 +136,7 @@ knitr::include_graphics("figs/gut.jpeg")
 
 --
 
-+ Baseado em __arquivos de texto__ (`.tex`)
++ Baseado em __arquivos de texto__ (`.tex`). Formato de saída: __PDF__
 
 --
 
@@ -152,181 +158,94 @@ knitr::include_graphics("figs/gut.jpeg")
 
 + __"_Templates_"__ de teses e dissertações em várias instituições
 
+--
 
----
-## marcações de $\LaTeX$
-
-.pull-left[
-`\textit{italico}`
-
-`\textbf{negrito}`
-
-`\texttt{codigo}`
-]
-
-.pull-right[
-
-$\textit{italico}$
-
-$\textbf{negrito}$
-
-$\texttt{codigo}$
-]
-
-
+#### para aprender mais: [__overleaf__](https://www.overleaf.com/)  $\LaTeX$ online, sem instalar nada localmente. 
 
 ---
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1024px-Markdown-mark.svg.png)
-background-size: 20%
-background-position: 90% 80%
+background-size: 15%
+background-position: 90% 5%
 
-## markdown é mais simples do que $\LaTeX$ - e para muitas coisas isso é suficiente
+## markdown 
 
-
-+ Baseado em html, comandos relativamente simples
-+ Arquivos de texto com extensão `.md`
-+ Facilmente "parseado" por várias plataformas - inclusive GitHub __README.md__
-
----
-## marcações de markdown
-<small>
-.pull-left[
-`texto simples`  
-`__negrito__` e `**negrito**`  
-`superscript^2^`  
-`~~tachado~~`  
-`[link](www.rstudio.com)`  
-<br>
-`# Titulo 1`  
-<br>
-`## Titulo 2`  
-]
-
-.pull-right[
-texto simples  
-__negrito__  e **negrito**  
-superscript<sup>2</sup>  
-~~tachado~~  
-[link](www.rstudio.com)  
-# Titulo 1  
-## Titulo 2  
-]
-</small>
----
-## marcações de markdown
-
-<small>
-.pull-left[
-`+ lista sem numerar`  
-`+ lista sem numerar`  
-
-`1. lista numerada`  
-`1. lista numerada`  
-]
-
-.pull-right[
-+ lista sem numerar  
-+ lista sem numerar  
-
-1. lista numerada  
-1. lista numerada  
-
-]
-
-</small>
++ é mais simples do que $\LaTeX$ - e para muitas coisas isso é suficiente
 --
 
-### tags de html:
++ Baseado em arquivos de texto `.md`, formato de saída __HTML__
+--
 
-`<center> isto aqui fica centrado </center>`
-<center> isto aqui fica centrado </center>
++ Aceita tags de html e planilhas de CSS
+--
 
++ Facilmente interpretado e renderizado por várias plataformas - inclusive GitHub (__README.md__)
+--
 
----
+### pandoc https://pandoc.org/
+--
 
-## literate programming (programação "letrada")
+um canivete suiço: conversor entre __muitos__ tipos de arquivo  
 
-+ [Knuth 1984](http://www.literateprogramming.com/knuthweb.pdf) 
-
-+ Integrar texto e código
-
- + $\LaTeX$ e R: __SWEAVE__ -> "tricotar"
- 
- + markdown e R: rmarkdown (.Rmd). __knitr__ -> "tricotar" :P
 
 ---
 background-image: url(https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png)
-background-size: 20%
-background-position: 90% 80%
+background-size: 150px
+background-position: 98% 2%
 
-## rmarkdown
+### queremos incluir código!
 
-+ para inserir código de `R`: __rmarkdown__
-+ bem implementado (mas não exclusivo) em RStudio
-+ __knitr__ em vez de __sweave__
+--
 
-+ em "chunks" de código visíveis ou invisíveis (`echo = TRUE/FALSE`) ou na mesma linha ( `r` `nrow(cars)`)
++ _literate programming_ (programação "letrada", [Knuth 1984](http://www.literateprogramming.com/knuthweb.pdf))
 
----
-## vantagens de usar rmarkdown
+--
 
-+ mais fácil que $\LaTeX$
++ Integrar texto e código
 
-+ mais fácil de inserir código
+--
 
-+ também funciona com git
+ + $\LaTeX$ e R: __SWEAVE__ (.Rnw). Output em PDF.
 
-+ formatos diferentes: apresentações, html, pdf, doc
+--
 
-+ novos pacotes relacionados: __blogdown__, __pagedown__, __bookdown__, __thesisdown__
+ + markdown e R: __knitr__ (.Rmd). Output em markdown `.md`.
+ 
+--
 
----
-class: middle, center
+ + __knitr__ também sabe lidar com .Rnw e gerar .tex $\LaTeX$
 
-# rmarkdown
----
-## estrutura de um documento de rmarkdown
+--
 
-+ extensão `.Rmd`
-+ um cabeçalho de metadados (chamado de __YAML__), com opções, entre outras o título, o autor, a data e o tipo de output que você quer.
-+ No cabeçalho `YAML` outras funções poderão ser incluídas posteriormente, inclusive a citação de artigos.
+#### A partir do `.md` __rmarkdown usa pandoc__ e consegue gerar muitos formatos de saída.
 
 ---
-## formatando texto no (r)markdown
-
-+ Títulos com hashtags (`#` ,`##`)
-+ Texto normal
-+ Listas
-+ Formato (negrito, cursiva, código)
-+ __Entre parágrafos precisa ter uma linha vazia__
-+ Ou __quebra de linha__ com dois espaços no final
-
+class: inverse
 ---
 background-image: url(https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/thinkr-hex-remedy.png)
 background-size: 150px
-background-position: 90% 10%
+background-position: 98% 2%
 
 ## ajuda para digitar: o pacote __remedy__
 
 __remedy__ é instalado como um __Addin__ de RStudio
 
+menu > ferramentas > modificar atalhos de teclado: 
+
 + `ctrl + b` -> negrito
 + `ctrl + i` -> italico
 + `ctrl + k` -> link
-+ `ctrl + 1` -> h1 (header)
-+ `ctrl + 2` -> h1 (header)
-+ `ctrl + r` -> insertar chunk de código!
++ `ctrl + 1` -> h1 (cabeçalho 1)
++ `ctrl + 2` -> h1 (cabeçalho 2)
++ `ctrl + r` -> insertar _chunk_ de código!
 
 ---
-## adicionando "chunks" de código de R
+## o fluxo de trabalho para a escrita de um manuscrito
 
-+ o código de R se encontra entre __acentos graves triplos__
++ quando você aprende rmarkdown __quer knitar tudo__
 
-+ o primeiro _chunk_ tem as opções gerais que serão usadas
++ poder fazer ≠ dever fazer
 
-+ algumas opçoes básicas: `eval`, `echo`, `fig.width`, `message`, `warning`
-
-+ dá para botar nas opções gerais ou em cada chunk, e contradizer a opção geral (override)
++ prós e contras
 
 ---
 ## o fluxo de trabalho para a escrita de um manuscrito
@@ -337,57 +256,42 @@ __remedy__ é instalado como um __Addin__ de RStudio
 + citação
 
 ---
-## o fluxo de trabalho para a escrita de um manuscrito
-
-.pull-left[
-### tese/dissertação
-+ capítulos
-+ _outputs_
-]
-
-.pull-right[
-### artigo científico
-+ templates
-]
-
-
----
-## pasta de trabalho
-
-
-+ Crie a pasta `/relatorio` e salve o `.Rmd` nela
-
-+ Nas opções para knittar __Knit directory__:
-  + Document directory: acesso de tudo via "pasta do lado" `../data` - __é melhor fazer isto porque fica consistente ao longo do texto mas isto pode mudar caso a caso__.
-
----
 ## incluir plots
 
-+ Pode gerar no chunk
-+ Pode inserir output criado por fora `/figs/fig.png`
++ gerar no chunk com código puro
+--
 
-+ `![](/figs/fig.png)`
-+ `knitr::include_graphics(figura)`
-+ html `<img src ---->`
-+ beamer `\includegraphics{}`
++ inserir uma figura externa:
+  + `![](/figs/fig.png)`
+  + html `<img src ---->`
+  + beamer `\includegraphics{}`
 
-etc.
+#### O único que serve com todos os formatos é 
+
+```
+*knitr::include_graphics(figura)
+```
 
 ---
 ## incluir tabelas
 
 Formato padrão
 
-`|   a|   b|   c|`
-`|-:|-:|-:|`
-`|   1|   2|   3|`
-`|   2|   3|   4|`
+.pull-left[
+`|   a|   b|   c|`  
+`|-:|-:|-:|`  
+`|   1|   2|   3|`  
+`|   2|   3|   4|`  
+]
 
+.pull-right[
 
 |  a|  b|  c|
 |--:|--:|--:|
 |  1|  2|  3|
 |  2|  3|  4|
+
+]
 
 + Existem serviços para gerar tabelas com este formato, como o __[markdown table generator](http://www.tablesgenerator.com/markdown_tables)__
 
@@ -400,90 +304,81 @@ Formato padrão
 + Para incluir qualquer tipo de output (por exemplo uma tabela de anova), o pacote __pander__ __[(link)](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)__
 
 
----
-## incluir tabelas
-
-```{r}
-data(cars)
-pander::pander(head(cars))
-```
-
----
-## incluir tabelas
-```{r}
-data(cars)
-knitr::kable(head(cars))
-```
 
 ---
 class: center, middle
 
-# Gestão de bibliografia em markdown (e $LaTeX$)
----
-## gestão de bibliografia
-
-+ [BibTeX](http://www.bibtex.org/) e o formato: `.bib`
-+ um arquivo de __estilo de citação__: `nature.csl` 
-
-+ Se `refs.bib` e `estilo.csl` estiverem na pasta `/citation`:
-
-+ No __YAML__:
-  + `bibliography: ../citation/refs.bib`
-  + `csl: ../citation/nature.csl`
-
+# Gestão de bibliografia em rmarkdown (e $\LaTeX$)
 
 ---
 ## gestão de bibliografia
 
 + __Como criar a bibliografia?__ Gestor de bibliografias? Zotero? Mendeley?
+--
 
 + Programas que armazenam as citações e opcionalmente os arquivos das publicações
+--
 
-+ Citação automática
++ Formatação automática
 
 ---
-class: bottom
 background-image: url("https://www.zotero.org/static/images/theme/zotero-logo.1519224037.svg")
 background-size: 20%
-background-position: 90% 5%
+background-position: 90% 2%
 
+<br>
+<br>
 
-+ Gestor de bibliografia de código aberto
++ Gestor de bibliografia __de código aberto__
 --
 
-+ Uma extensão no navegador _download_ da citação e do pdf se ele estiver disponível
++ Uma extensão no navegador faz _download_ da citação e do pdf se ele estiver disponível
 --
 
-+ Um app com as referências, ligado ou não a alguma pasta do computador
++ Um programa local com as referências, ligado ou não a alguma pasta do computador
 --
 
-+ Um conector para word e libreoffice
++ Um __conector__ para word e libreoffice
 --
 
-+ Funcionalidade no google drive
++ Funcionalidade no google drive (porém lentaaaa)
 --
 
-+ Uma página web que cria as citações a partir da URL ou o DOI. https://zbib.org/
++ Uma página web que cria as citações a partir da URL ou o DOI. [https://zbib.org/](https://zbib.org/)
 --
 
-+ Uma página de estilos de citação (__Zotero style repository__)
++ Uma página de __estilos de citação__: [Zotero style repository](https://www.zotero.org/styles)
 --
 
-+ Uma série de addins
++ Addins
 --
 
 + __BetterBibTeX__:
-    + Cria as chaves de citação
-    + Exporta coleções em `.bib` e as mantém atualizadas
+    + Cria as chaves de citação de BibTeX
+    + Exporta coleções em `.bib` e __as mantém atualizadas__
 
 ---
-## citação no rmarkdown
+## citação no markdown
+
++ [BibTeX](http://www.bibtex.org/) e o formato: `.bib`
+
+--
+
++ um arquivo de __estilo de citação__: `nature.csl` 
+
+--
+
++ Se `refs.bib` e `estilo.csl` estiverem na pasta `/citation`:
+
+--
 
 + Incluir o `.bib` e o `.csl` da bibliografia no yaml:
-    + `csl: ../citation/jvs.csl`
-    + `bibliography: ../citation/bibliografia.bib`
+  + `bibliography: ../citation/refs.bib`
+  + `csl: ../citation/nature.csl`
 
-+ Citar usando o formato: `[@sobrenome_primeirapalavra_ano]` (olhar no zotero ou no mendeley a chave de citação)
+--
+
++ Citar usando o formato: `[@sobrenome_primeirapalavra_ano]` (olhar no zotero ou no mendeley a __chave de citação__)
 
 ---
 ## citação no rmarkdown
@@ -555,14 +450,17 @@ background-size: 100%
 ---
 background-image: url("./figs/10output.png")
 background-size: 100%
----
-## diferentes estilos de citação
 
-oikos, nature, jvs, ecology-letters, vancouver
 
 ---
-## exportando `.Rmd` para word
-### spoiler: tudo funciona igual mas o padrão de word é horrível
+## formatos finais requeridos (teses, artigos)
+
++ novos pacotes relacionados: __bookdown__, __thesisdown__, __rticles__
+
+--
+
+---
+# inevitável: exportando para .docx
 
 + um documento de referência pro estilo: template_intro.docx __com os estilos desejados modificados__
 + __no cabeçalho YAML__:
@@ -573,6 +471,17 @@ word_document:
 ```
 
 + alguns problemas com tabelas, páginas horizontais, checar bem!
+
+---
+## conclusões 
+
+- __resista a tentação__ de fazer um documento só com todo o código: scripts e outputs separados do documento. __flexibilidade__ no formato final.
+
+--
+
+- entenda os __formatos finais requeridos__ e sua disponibilidade em diferentes plataformas
+
+
 
 ---
 ## referências
@@ -589,7 +498,7 @@ https://bookdown.org/yihui/rmarkdown/interactive-documents.html
 `r icon::fa("twitter", colour = "#562457")` [@SanchezTapiaA](https://twitter.com/SanchezTapiaA) 
 `r icon::fa("twitter", colour = "#562457")` [@rladiesrio](https://twitter.com/rladiesrio) 
 
-`r icon::fa("github", colour = "#562457")` `r icon::fa("gitlab", colour = "#562457")` `r icon::fa("bitbucket", colour = "#562457")` [andreasancheztapia](http://github.com/andreasancheztapia) 
+`r icon::fa("github", colour = "#562457")` `r icon::fa("gitlab", colour = "#562457")` 
 
 `r icon::fa("r-project", colour = "#562457")` [R-Ladies+ Rio de Janeiro](https://www.meetup.com/pt-BR/rladies-rio/)
 
