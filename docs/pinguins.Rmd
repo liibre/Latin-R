@@ -1,9 +1,21 @@
 ---
 title: "Automatizar partes chatas do manuscrito para poder focar na escrita: um exercício usando dados de pinguins"
-author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
+author:
+  - name: "Andrea Sánchez-Tapia"
+    affiliation: "¡liibre!"
+    address: |
+      Latinoamerica
+    email: <name@company.com>
+  - name: "Sara Ribeiro Mortara"
+    affiliation: "¡liibre!"
+    address: |
+      Latinoamerica
+    email: <name@company.com>
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 bibliography: ../citation/referencias.bib
 csl: ../citation/journal-of-ecology.csl
+abstract: |
+  Valerá sim a pena continuar a ler o manuscrito.
 output:
   html_document:
     df_print: paged
@@ -13,26 +25,23 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 
 library(kableExtra)
+library(palmerpenguins)
 ```
-
-## Resumo
-
-Valerá sim a pena continuar a ler o manuscrito. 
 
 ## Introdução
 
-Escrever não é fácil e ninguém quer perder tempo inserindo tabelas e figuras em editores de texto convencionais. Por isso, o uso de ferramentas que permitem a automatização em arquivos de texto é essencial. A curva de aprendizado não é tão rápida quanto em um editor de texto convencional, mas acredite, valerá a pena. 
+Escrever não é fácil e ninguém quer perder tempo inserindo tabelas e figuras em editores de texto convencionais. Por isso, o uso de ferramentas que permitem a automatização em arquivos de texto como $\LaTeX$ e rmarkdown é essencial. A curva de aprendizado não é tão rápida quanto em um editor de texto convencional, mas acredite, valerá a pena. 
 
 O objetivo desse trabalho é apenas mostrar como fazer um manuscrito usando rmarkdown. Os pinguins estão aqui porque eles são legais e podem ser diferentes dependendo da espécie e do sexo [@gorman_ecological_2014]. Importante lembrar que os dados não falam por si só e precisam de contexto [@dignazio_data_2020]. 
 
 
 ## Material e Métodos
 
-Para a redação não há outra saída. Você irá precisar de café (ou sua outra bebida favorita), uma boa pergunta embasada no contexto teórico da sua área de estudo, dados e um bons argumentos para discutir o que você encontrou. Esta não é uma oficina sobre redação científica. 
+Para a redação não há outra saída. Você irá precisar de café (ou sua outra bebida favorita), uma boa pergunta embasada no contexto teórico da sua área de estudo, dados e um bons argumentos para discutir o que você encontrou. Mas esta não é uma oficina sobre redação científica. 
 
 Neste exercício, usaremos dados abertos coletados por @gorman_ecological_2014 disponíveis no pacote de R palmerpenguins [@allisonmhorst_allisonhorst_2020] para mostrar como inserir tabelas e figuras em um documento de rmarkdown.
 
-Os dados são referentes a medidas de 344 indivíduos de três espécies de pinguins do gênero *Pygoscelis*. As espécies ocorrem em três ilhas do arquipélago Palmer na Antártica. A espécie *P. adelie* é a única que ocorre nas três ilhas e co-ocorre com as demais espécies (Figura 1). 
+Os dados são referentes a medidas de `r nrow(penguins)` indivíduos de três espécies de pinguins do gênero *Pygoscelis*. As espécies ocorrem em três ilhas do arquipélago Palmer na Antártica: `r paste(unique(penguins$island), collapse = ", ")`. A espécie *P. adelie* é a única que ocorre nas três ilhas e co-ocorre com as demais espécies (Figura 1). 
 
 ```{r mapa, fig.cap = "Figura 1. Localização das três espécies de pinguins nas três ilhas do arquipélago Palmer porque um mapa pode fazer parecer mais profissional."}
 knitr::include_graphics("../figs/figura_01.png")
