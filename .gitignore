@@ -39,3 +39,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# xaringan stuff
+*/xaringan-themer.css
+*libs/
