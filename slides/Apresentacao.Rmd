@@ -99,11 +99,15 @@ knitr::include_graphics("figs/chevron.png")
 
 --
 
-+ Escrever _durante_ a análise de dados
++ Escrever _durante_ o processo
 
 --
 
 + Integrar o código e o texto
+
+--
+
++ Apesar de separar escrita das análises
 
 --
 
@@ -112,7 +116,7 @@ knitr::include_graphics("figs/chevron.png")
 --
 
 
-+ Utilizar as vantagens de trabalhar com __scripts + controle de versões (git)__ para dar transparência e controlar a qualidade da análise 
++ Utilizar as vantagens de trabalhar com __scripts + controle de versões (git)__ para dar transparência e controlar a qualidade do trabalho 
 
 --
 
@@ -287,7 +291,7 @@ Pode modificar os atalhos de teclado para que fique mais fácil escrever:
 #### O único que serve com todos os formatos é 
 
 `````
-```
+```\\
 *knitr::include_graphics(figura)
 ```
 `````
@@ -382,7 +386,7 @@ toBibtex(citation("vegan"))
 
 --
 
-+ __Zotero__: o addin __betterbibtex__ cria a chave de citaçãom, exporta coleções em `.bib` e as mantém atualizadas
++ __Zotero__: o addin __betterbibtex__ cria a chave de citação, exporta coleções em `.bib` e as mantém atualizadas
 
 --
 
