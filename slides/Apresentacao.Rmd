@@ -46,7 +46,7 @@ MSc. Ecologia <br> (UFRJ), Dra. em Botânica (ENBT-JBRJ). Pós-Doc do Núcleo de
 + __Sara Ribeiro Mortara__
 Bióloga (ESALQ/USP), MSc. Ecologia e Conservação da Biodiversidade (UESC) e Dra. em Ecologia (USP). Pequisadora do Instituto Internacional para a Sustentabilidade (IIS). Modelagem estatística
 
-+ __¡liibre!__ Informática da biodiversidade, ciência aberta e reprodutível, ética na ciência de dados, [ciência de dados feminista](http://datafeminism.io/)
++ __¡liibre!__ Informática da biodiversidade, ciência aberta e reprodutível, ética na ciência de dados, [ciência de dados feminista](http://datafeminism.io/) 
 
 + R-Ladies Rio de Janeiro 
 
@@ -219,6 +219,12 @@ background-position: 98% 2%
 #### A partir do `.md` __rmarkdown usa pandoc__ e consegue gerar muitos formatos de saída.
 
 ---
+background-image: url(https://bookdown.org/yihui/rmarkdown-cookbook/images/workflow.png)
+background-size: contain
+
+.footnote[https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html]
+
+---
 class: inverse
 ---
 background-image: url(https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/thinkr-hex-remedy.png)
@@ -258,40 +264,43 @@ Pode modificar os atalhos de teclado para que fique mais fácil escrever:
 ---
 ## para incluir plots
 
-+ gerar no chunk com código puro
++ Gerar no _chunk_ com código puro (vai ficar salvo em uma pasta `files`)
 
 --
 
-+ inserir uma figura externa:
++ Inserir uma figura externa:
 
 --
 
-  + `![](/figs/fig.png)`
+  + Em sintaxe de markdown: `![](/figs/fig.png)`
 
 --
 
-  + html `<img src ---->`
+  + Em sintaxe de html: `<img src ---->`
 
 --
 
-  + latex `\includegraphics{}`
+  + Em sintaxe de $\LaTeX$: `\includegraphics{}`
 
 --
-
+ 
 #### O único que serve com todos os formatos é 
 
+`````
 ```
 *knitr::include_graphics(figura)
 ```
-
-(dentro de um chunk)
+`````
+(dentro de um _chunk_)
 
 ---
 ## incluir tabelas
 
-Formato padrão
 
 .pull-left[
+
+Formato padrão
+
 `|   a|   b|   c|`  
 `|-:|-:|-:|`  
 `|   1|   2|   3|`  
@@ -299,6 +308,7 @@ Formato padrão
 ]
 
 .pull-right[
+Resultado
 
 |  a|  b|  c|
 |--:|--:|--:|
@@ -307,16 +317,18 @@ Formato padrão
 
 ]
 
-+ Existem serviços para gerar tabelas com este formato, como o __[markdown table generator](http://www.tablesgenerator.com/markdown_tables)__
-
----
-## incluir tabelas
+--
 
 + Para gerar tabelas desde os chunks de R:
     + a função `kable()` de __knitr__ e o pacote __[kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)__ que dá mais opções
 
+--
+
 + Para incluir qualquer tipo de output (por exemplo uma tabela de anova), o pacote __[pander](https://cran.r-project.org/web/packages/pander/vignettes/knitr.html)__
 
+--
+
++ Existem serviços para gerar tabelas com este formato, como o __[markdown table generator](http://www.tablesgenerator.com/markdown_tables)__
 
 
 ---
@@ -331,7 +343,7 @@ class: center, middle
 
 --
 
-+ __Mendeley__ e __Zotero__, EndNote, Reference Manager  
++ __Zotero__ e __Mendeley__, EndNote, Reference Manager  
 
 --
 
@@ -339,44 +351,47 @@ class: center, middle
 
 --
 
+```{r remedy001}
+toBibtex(citation("vegan"))
+```
+
+--
+
 + Formatação automática: arquivo de __estilo de citação__ `*.csl` 
 
-
 ---
-background-image: url("https://www.zotero.org/static/images/theme/zotero-logo.1519224037.svg")
-background-size: 20%
-background-position: 90% 2%
-
-<br>
-<br>
-
-+ Gestor de bibliografia de código aberto
---
+## usando zotero ou mendeley
 
 + Uma extensão no navegador faz _download_ da citação e do pdf se ele estiver disponível
+
 --
 
-+ Um programa local com as referências, ligado ou não a alguma pasta do computador
++ Armazenamento e gestão de referências em um aplicativo local
+
 --
 
-+ Um __conector__ para word e libreoffice
++ Coleções específicas por temas/projetos
+
 --
 
-+ Funcionalidade no google drive (porém lentaaaa)
++ Um __conector__ para word e libreoffice (__Zotero__: Funcionalidade no google drive porém lentaaaa)
+
 --
 
-+ Uma página web que cria as citações a partir da URL ou o DOI. [https://zbib.org/](https://zbib.org/)
++ Um _site_ que cria as citações a partir da URL ou o DOI. [https://zbib.org/](https://zbib.org/)
+
 --
 
-+ Uma página de __estilos de citação__: [Zotero style repository](https://www.zotero.org/styles)
++ __Zotero__: o addin __betterbibtex__ cria a chave de citaçãom, exporta coleções em `.bib` e as mantém atualizadas
+
 --
 
-+ Addins
++ __Mendeley__: criar .bib para cada coleção, manter atualizado
+
 --
 
-+ __BetterBibTeX__:
-    + Cria as chaves de citação de BibTeX
-    + Exporta coleções em `.bib` e __as mantém atualizadas__
++ Uma página de __estilos de citação__: [Zotero style repository](https://www.zotero.org/styles). Arquivos `.csl` 
+
 
 ---
 ## para citar em documentos de __rmarkdown__
@@ -395,7 +410,7 @@ background-position: 90% 2%
 
 --
 
-+ um addin 
++ __citr__: um addin para incluir citações no RStudio (já foi mais estável e não tem autocompletar)
 
 ---
 ## citação no rmarkdown
@@ -407,35 +422,76 @@ background-position: 90% 2%
 
 + O formato final depende do arquivo de estilo `.csl`
 
-+ No final do texto são inseridas as referências completas
++ Pré-determinado: as referências completas são inseridas no final do texto
+
++ Se precisar colocar em outro lugar (por ex. porque tem apéndices, figuras, tabelas) Incuir `<div id="refs"></div>` 
 
 ---
-## usando zotero
-
-+ donwload de referências
-+ cria a coleção
-+ betterbibtex cria a chave de citação 
-+ export, keep updated
-+ csl 
-
+class: inverse
 ---
 ## formatos finais requeridos (teses, artigos)
 
 + novos pacotes relacionados: __bookdown__, __thesisdown__, __rticles__
 
+---
+## formatos de artigo
+
+### templates em PDF:
+
+- O pacote __rticles__ tem vários templates de LaTeX aceitos pelas revistas (Elsevier, Frontiers, etc.)
+
+--
+
+- Temas novos são adicionados à versão de desenvolvimento: 
+
+
+```
+remotes::install_github("rstudio/rticles")
+rticles::journals()
+```
+
+---
+
+- Temas e Overleaf 
+---
+# PDF
+
+- Se tiver um template de .tex: template: 
+
+```
+output:
+  pdf_document:
+    template: quarterly-report.tex
+```
+
+
+- Se precisar guardar o arquivo .tex intermediário: `keep_tex: true` no YAML
 
 ---
 # inevitável: exportando para .docx
 
-+ um documento de referência pro estilo: "template.docx" com os estilos desejados modificados (à mão desde word)
-+ __no cabeçalho YAML__:
++ __Alguns problemas com tabelas, páginas horizontais, vão persistir__ checar bem!
+
+--
+
++ Um documento de referência pro estilo: "template\_intro.docx" com os estilos desejados modificados (__à mão desde word__) 
+
+--
+
++ __No cabeçalho YAML__:
 
 ```
 word_document:
-    reference_docx: template.docx
+    reference_docx: template_intro.docx
 ```
 
-+ __alguns problemas com tabelas, páginas horizontais, vão persistir__ checar bem!
+--
+
++ Para melhores resultados, é melhor __knitar uma vez sem template__, __modificar o documento resultante__ e __usar esse documento resultante como template__.
+
+--
+
++ Para documentos odt igual: `reference_odt: my-styles.odt`
 
 ---
 ## conclusões 
@@ -452,8 +508,8 @@ word_document:
 ## referências
 
 - R Markdown: The Definitive Guide https://bookdown.org/yihui/rmarkdown/
-https://rmarkdown.rstudio.com
-https://peerj.com/preprints/3159/
+- R markdown cookbook: https://bookdown.org/yihui/rmarkdown-cookbook/
+- https://rmarkdown.rstudio.com
 https://bookdown.org/yihui/rmarkdown/interactive-documents.html
 
 ---

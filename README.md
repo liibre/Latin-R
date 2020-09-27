@@ -11,11 +11,11 @@ Os participantes deverão instalar os pacotes rmarkdown, knitr e kableExtra, rem
     ├── data/     # dados
     ├── docs/     # arquivo .Rmd
     ├── figs/     # figuras geradas pelos scripts
-    ├── output/   # outputs geradas pelos scripts
+    ├── output/   # outputs gerados pelos scripts
     └── scripts/  # scripts de R com análises
 
 A oficina será ministrada por Andrea Sánchez-Tapia e Sara Ribeiro Mortara. 
 
-**Andrea Sánchez-Tapia**. Bióloga, Pesquisadora pós-doutoral do Núcleo de Computação Científica e Geoprocessamento do Jardim Botânico do Rio de Janeiro. Co-fundadora de ¡liibre! - laboratório independente de informática da biodiversidade e reprodutibilidade em ecologia. Co-organizadora do capítulo RLadies+  Rio de Janeiro.
+**Andrea Sánchez-Tapia**. Bióloga, Pesquisadora pós-doutoral do Núcleo de Computação Científica e Geoprocessamento do Jardim Botânico do Rio de Janeiro. Co-fundadora de ¡liibre! - laboratório independente de informática da biodiversidade e reprodutibilidade em ecologia. Co-organizadora do capítulo RLadies+ Rio de Janeiro.
 
 **Sara Ribeiro Mortara**. Bióloga, doutora em Ecologia e pesquisadora do Instituto Internacional para Sustentabilidade. Trabalha com ciência de dados e biodiversidade. É co-fundadora do ¡liibre! - laboratório independente de informática da biodiversidade e reprodutibilidade em ecologia e co-organizadora do capítulo R-Ladies+ Rio de Janeiro.
