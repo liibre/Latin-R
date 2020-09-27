@@ -420,9 +420,9 @@ toBibtex(citation("vegan"))
 ## citação no rmarkdown
 
 + No __texto__, a citação é marcada assim: `@sobrenome_palavrachave_ano`
-  + Ex. `[@tukey_exploratory_1977]` -> (Tukey, 1977)
-  + Ex. `@tukey_exploratory_1977` -> Tukey (1977)
-  + Ex. `[@tukey_exploratory_1977, @zuur_protocol_2010]` -> (Tukey 1977, Zuur et al. 2010)
+  + Ex. `[@dignazio_data_2020]` -> (D'ignazio & Klein 2020)
+  + Ex. `@dignazio_data_2020` -> D'ignazio & Klein (2020)
+  + Ex. `[@noble_algorithms_2018, @dignazio_data_2020]` -> (Noble 2018, D'ignazio & Klein 2020)
 
 + O formato final depende do arquivo de estilo `.csl`
 
