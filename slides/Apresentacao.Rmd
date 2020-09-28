@@ -229,7 +229,10 @@ background-size: contain
 .footnote[https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html]
 
 ---
-class: inverse
+class: inverse, middle
+
+# estrutura de um documento de rmarkdown
+
 ---
 background-image: url(https://raw.githubusercontent.com/ThinkR-open/remedy/master/reference/figures/thinkr-hex-remedy.png)
 background-size: 150px
@@ -431,7 +434,15 @@ toBibtex(citation("vegan"))
 + Se precisar colocar em outro lugar (por ex. porque tem apéndices, figuras, tabelas) Incuir `<div id="refs"></div>` 
 
 ---
-class: inverse
+print coleção
+print mendeley 
+print JSS
+
+---
+class: inverse, middle 
+
+# formatos finais, 
+ 
 ---
 ## formatos finais requeridos (teses, artigos)
 
@@ -496,6 +507,9 @@ word_document:
 --
 
 + Para documentos odt igual: `reference_odt: my-styles.odt`
+
+---
+class: inverse, middle
 
 ---
 ## conclusões 

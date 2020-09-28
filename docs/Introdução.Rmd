@@ -1,0 +1,23 @@
+---
+title: ""
+author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+bibliography: ../citation/referencias.bib
+csl: ../citation/journal-of-ecology.csl
+output:
+   html_document:
+    df_print: paged
+---
+
+# Introdução: tudo o que você quis saber sobre pinguins
+
+```{r setupintro, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Mas tudo mesmo. 
+
+
+
+
+

@@ -1,0 +1,36 @@
+---
+title: "capítulo 2: os pinguins são legais mesmo"
+author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+bibliography: ../citation/referencias.bib
+csl: ../citation/journal-of-ecology.csl
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Capítulo 2: os pinguins são legais mesmo
+
+## Resumo
+
+
+## Introdução
+
+
+## Material e Métodos
+
+
+
+## Resultados
+
+
+
+
+## Discussão
+
+
+## Referências

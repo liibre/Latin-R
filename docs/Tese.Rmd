@@ -1,0 +1,28 @@
+---
+title: "Uma tese incrível sobre pinguins"
+author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  word_document: 
+    reference_docx: ../docs/templates/template_word.docx
+  pdf_document: default
+  html_document:
+    df_print: paged
+    number_sections: yes
+csl: ../citation/journal-of-ecology.csl
+bibliography: ../citation/referencias.bib
+always_allow_html: true
+---
+
+```{r setupall, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r child = 'Introdução.Rmd'}
+```
+
+```{r child = 'pinguins.Rmd'}
+```
+
+```{r child = 'capítulo_2.Rmd'}
+```
