@@ -17,8 +17,11 @@ csl: ../citation/journal-of-ecology.csl
 abstract: |
   Valerá sim a pena continuar a ler o manuscrito.
 output:
+  word_document: 
+    reference_docx: ../docs/templates/template_word.docx
   html_document:
     df_print: paged
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -27,6 +30,8 @@ knitr::opts_chunk$set(echo = FALSE)
 library(kableExtra)
 library(palmerpenguins)
 ```
+
+# Titulo do capitulo 1 
 
 ## Introdução
 
@@ -77,3 +82,4 @@ tabela %>%
 Os pinguins são bonitinhos e parecem apresentar diferença entre os sexos. Não aprendemos muito mais sobre os pinguins porque os dados não significam quase nada sem contexto. Esperamos que vocês tenham perdido o medo e se convencido de que é preciso automatizar as partes chatas do manuscrito e focar naquilo que importa: a escrita em si.
 
 ## Referências
+<div id="refs"></div>
