@@ -31,7 +31,7 @@ library(kableExtra)
 library(palmerpenguins)
 ```
 
-# Titulo do capitulo 1 
+# Automatizar partes chatas do manuscrito para poder focar na escrita: um exercício usando dados de pinguins
 
 ## Introdução
 

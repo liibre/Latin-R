@@ -1,5 +1,5 @@
 ---
-title: "capítulo 2: os pinguins são legais mesmo"
+title: "capítulo 2: O pinguim na cultura popular latinoamericana: um estudo de caso"
 author: "Andrea Sánchez-Tapia & Sara Ribeiro Mortara"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 bibliography: ../citation/referencias.bib
@@ -13,24 +13,54 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Capítulo 2: os pinguins são legais mesmo
+# Capítulo 2: O pinguim na cultura popular latinoamericana: um estudo de caso
 
 ## Resumo
+O segundo capítulo desta tese incrível sobre pinguins traz a letra de uma música
+sobre pinguins. A música foi composta por Marlore Anwandter, uma mulher chilena enquanto morava na Colômbia. Bem no espírito de __Latin-R__.
 
 
-## Introdução
+## Sammy el heladero  
 
+    Sammy el heladero  
+    es un pingüino feliz y gordito  
+    vive en su patria de hielo  
+    vendiendo helado y empujando su carrito
 
-## Material e Métodos
+    Los helados que Sammy vende 
+    los hace con agua y con risa.
+    A veces le pone leche, nueces molidas
+    y un poco de pizca
+    
+    Sammy un día partió al Africa
+    empujando su carrito
+    los animales salvajes comieron helado
+    y quedaron fresquitos
 
+    Para el león helado de limón
+    para el tigre feroz helado con arroz
+    para el elefante un helado gigante
+    para toda la familia un helado de vainilla
 
+    Sammy el heladero quiso volver
+    a su patria de hielo
+    los animales salvajes del Africa
+    lo tomaron prisionero
 
-## Resultados
+    Sammy en su calabozo lloraba gritaba
+    y pataleaba y a los helados le echaba
+    clavos molidos y pimienta mojada
 
+    Pero por fin lo soltaron
+    porque se cansaron de oírles sus gritos
+    y Sammy el heladero volvió a su patria
+    empujando su carrito
 
-
-
-## Discussão
-
+    Para el león helado de limón
+    para el tigre feroz helado con arroz
+    para el elefante un helado gigante
+    para toda la familia un helado de vainilla
 
 ## Referências
+
+Anwandter, M. Canticuentos.
