@@ -278,7 +278,7 @@ background-size: contain
 .footnote[https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html]
 
 ---
-class: inverse, middle
+class: inverse, middle, center
 
 # estrutura de um documento de rmarkdown
 
@@ -373,31 +373,9 @@ Resultado
 
 
 ---
-## o fluxo de trabalho para a escrita de um manuscrito
-
-+ Quando você aprende rmarkdown __quer knitar tudo__
-
-+ Poder fazer ≠ dever fazer
-
-+ Alguns __contras__ de knitar tudo:
-
-    - você vai ter que knitar tudo toda vez que precisar mudar algo
-    - extrair uma figura que foi feita dentro de markdown é pouco prático
-    - você não pode trocar de plataforma de escrita facilmente (latex, word)
-
----
-## as boas práticas ainda aplicam
-
-+ cuidar da __estrutura de pastas__
-+ __modularizar__ o código
-+ usar __caminhos relativos__
-+ usar __git__ para controle de versões
-+ __separar a análise da redação__ apesar das possibilidades que o markdn oferece
-
----
 class: center, middle, inverse
 
-# Citação e gestão de bibliografias em rmarkdown (e <huge>$\LaTeX$</huge>)
+# Citação e gestão de bibliografias em rmarkdown (e <huge> $\LaTeX$ </huge>)
 
 ---
 ## gestão de bibliografia
@@ -433,7 +411,7 @@ toBibtex(citation("vegan"))
 
 --
 
-+ Coleções específicas por temas/projetos
++ Criar coleções específicas por temas/projetos
 
 --
 
@@ -445,16 +423,29 @@ toBibtex(citation("vegan"))
 
 --
 
++ Uma página de __estilos de citação__: [Zotero style repository](https://www.zotero.org/styles). Arquivos `.csl` 
+
+--
+
 + __Zotero__: o addin __betterbibtex__ cria a chave de citação, exporta coleções em `.bib` e as mantém atualizadas
 
 --
 
 + __Mendeley__: criar .bib para cada coleção, manter atualizado
 
---
+---
+## em mendeley
 
-+ Uma página de __estilos de citação__: [Zotero style repository](https://www.zotero.org/styles). Arquivos `.csl` 
+```{r}
+knitr::include_graphics("./figs/mendeley.png")
+```
 
+---
+## em Zotero
+
+```{r}
+knitr::include_graphics("./figs/exportar_bibtex.png")
+```
 
 ---
 ## para citar em documentos de __rmarkdown__
@@ -471,9 +462,6 @@ toBibtex(citation("vegan"))
 
 + Citar usando o formato: `[@sobrenome_primeirapalavra_ano]` (olhar no zotero ou no mendeley a __chave de citação__)
 
---
-
-+ __citr__: um addin para incluir citações no RStudio (já foi mais estável e não tem autocompletar)
 
 ---
 ## citação no rmarkdown
@@ -496,46 +484,146 @@ toBibtex(citation("vegan"))
 
 --
 
-+ Se precisar colocar em outro lugar (por ex. porque tem apéndices, figuras, tabelas) Incuir `<div id="refs"></div>` 
-
----
-## nova coleção
-
-```{r}
-knitr::include_graphics("./figs/exportar_bibtex.png")
-```
-
----
-```{r}
-knitr::include_graphics("./figs/mendeley.png")
-```
++ Se precisar colocar em outro lugar (por ex. porque tem apéndices, figuras, tabelas) Incluir:  
+`<div id="refs"></div>` 
 
 
 ---
-class: inverse, middle 
+class: inverse, middle, center 
 
 # formatos finais 
  
-+ Os outputs básicos de markdown: html, PDF, word
-+ Tudo relacionado com PDF está relacionado com $\LaTeX$. Templates de artigos.
-Pacote __rticles__. Dá para usar templates de overleaf ou templates externos em documentos de markdown? 
-Dá, mas você tem que modificar seu documento especificamente para esta mistura. 
-Talvez faça mais sentido usar $\LaTeX$ mesmo porque afinal a gente já não vai ter mais medo de fazer isso.
+---
+## exportando para .docx
+
++ Um documento de referência pro estilo: "template\_word.docx" com os estilos desejados modificados (__à mão desde word__) 
+
+--
+
++ __No cabeçalho YAML__:
+
+```
+word_document:
+    reference_docx: templates/template_word.docx
+```
+
+--
+
++ Para melhores resultados, é melhor __knitar uma vez__ sem template, __modificar__ o documento resultante e __usar esse documento resultante como template__.
+
+--
+
++ __Alguns problemas com tabelas, páginas horizontais, vão persistir__ checar bem!
+
+--
+
++ Para documentos `.odt` igual:  
+`reference_odt: my-styles.odt`
 
 ---
-# TSS, dissertações e teses 
+## exportando para PDF
 
-+ $\LaTeX$ com um template da universidade (ex. Overleaf)
-+ Pacote __thesisdown__ com o template de alguma universidade: pacote __coppedown__, __ufscdown__. Rmd com cabeçalhos e templates de $\LaTeX$
-+ Pacote __pagedown__: bota "páginas" nos outputs de html e portanto é um __passo direto de html a PDF__ (formata com __templates CSS__, e imprime para PDF). Para documentos acadêmicos: `pagedown::thesis_paged()` __Precisa editar o html e o CSS para fazer documentos em outra língua__
++ Tudo relacionado a PDF tem a ver com $\LaTeX$.
+
+--
+
++ __rmarkdown__ aceita marcação de $\LaTeX$ no corpo do texto (ex. `\newpage`)
+
+--
+
++ Templates e opções de $\LaTeX$ no YAML
+
+--
+
++ Premite guardar o arquivo `.tex` intermediário
+
+```yaml
+output:
+  pdf_document:
+    template: quarterly-report.tex
+    keep_tex: true
+header_includes:
+- \
+```
+
+--
+
++ Se for um _template_ complexo pode ser mais fácil escrever diretamente em $\LaTeX$. __Mesmo fluxo de trabalho__
 
 
 ---
-## formatos de artigo
+## lidando com capítulos
 
-### templates em PDF:
++ O mais simples: um .Rmd com documentos "filhos"
 
-- O pacote __rticles__ tem vários templates de LaTeX aceitos pelas revistas (Elsevier, Frontiers, etc.)
+--
+
+ex. `child = 'introducao.Rmd'` nas opções de um chunk vazio
+
+
+--
+
++ Permite manter estrutura de pastas/capítulos organizada
+
+--
+
++ Funciona com os formatos de saída
+
+--
+
++ Requer de __atenção com relação aos cabeçalhos YAML!__
+(depende do formato de saída e depende da estrutura dos documentos)
+
+--
+
+#### Vamos para `Tese.Rmd` na pasta docs
+
+
+---
+## pacotes bookdown e [thesisdown](https://github.com/ismayc/thesisdown)
+
++ Permite juntar vários `.Rmd`  em um PDF único e incluir índice, referências...
+
+--
+
++ [thesisdown](https://github.com/ismayc/thesisdown): Pacotes específicos para templates das universidades : variações são outros pacotes, ex. __coppedown__, __ufscdown__
+
+--
+
++ `.Rmd` com cabeçalhos e templates de $\LaTeX$
+
+---
+## pagedown
+
++ paginação (separar em páginas) dos documentos de html 
+
+--
+
++ um __passo direto de html a PDF__ 
+
+--
+
++ formata com __templates CSS__, e modelos `.html` 
+
+--
+
++ para documentos acadêmicos: `pagedown::thesis_paged()`
+
+--
+
+#### precisa editar o html e o CSS para fazer documentos em outra língua
+
+---
+## outros formatos pré-determinados de pagedown
+
+```{r remedy003}
+knitr::include_graphics("./figs/template_JSS.png")
+```
+
+---
+## pacote __rticles__
+
+- O pacote __rticles__ tem vários templates de $\LaTeX$ aceitos pelas revistas (Elsevier, Frontiers, etc.)
 
 --
 
@@ -546,55 +634,9 @@ remotes::install_github("rstudio/rticles")
 rticles::journals()
 ```
 
----
-
-```{r remedy003}
-knitr::include_graphics("./figs/template_JSS.png")
-```
-
----
-
-
-- Temas e Overleaf 
----
-# PDF
-
-- Se tiver um template de .tex: template: 
-
-```
-output:
-  pdf_document:
-    template: quarterly-report.tex
-```
-
-
-- Se precisar guardar o arquivo .tex intermediário: `keep_tex: true` no YAML
-
----
-# inevitável: exportando para .docx
-
-+ __Alguns problemas com tabelas, páginas horizontais, vão persistir__ checar bem!
-
 --
 
-+ Um documento de referência pro estilo: "template\_intro.docx" com os estilos desejados modificados (__à mão desde word__) 
-
---
-
-+ __No cabeçalho YAML__:
-
-```
-word_document:
-    reference_docx: template_intro.docx
-```
-
---
-
-+ Para melhores resultados, é melhor __knitar uma vez sem template__, __modificar o documento resultante__ e __usar esse documento resultante como template__.
-
---
-
-+ Para documentos odt igual: `reference_odt: my-styles.odt`
++ Só PDF e depende da disponibilidade de templates
 
 ---
 class: inverse, middle
@@ -602,19 +644,57 @@ class: inverse, middle
 ---
 ## conclusões 
 
-- __resista a tentação__ de fazer um documento só knitando o texto com todo o código: _scripts_ e _outputs_ separados do documento. __flexibilidade__ no formato final.
+- __Resista a tentação__ de fazer um documento só knitando o texto com todo o código (__Poder fazer ≠ dever fazer__): 
+ 
+ - _Scripts_ e _outputs_ separados do documento
 
 --
 
-- entenda os __formatos finais requeridos__ e sua disponibilidade em diferentes plataformas
+ - Vários capítulos: várias pastas
 
 --
+
+ -  Não escreva num `.Rmd` único!
+
+--
+ - __Flexibilidade__ na hora de fazer a formatação final
+
+--
+
+- Entenda os __formatos finais requeridos__ e sua disponibilidade em diferentes plataformas
+
+--
+
+- __Não escolha muito cedo mas não deixe para o final__ a decisão sobre formatação
+
+---
+## as boas práticas ainda aplicam
+
++ Cuidar da __estrutura de pastas__
+
+--
+
++ __Modularizar__ o código de cada manuscrito/capítulo
+
+--
+
++ Usar __caminhos relativos__
+
+--
+
++ Usar __git__ para controle de versões
+
+
 
 ---
 ## referências
 
++ Rosanna van Hespen: Writing your thesis with R https://www.rosannavanhespen.nl/2016/02/16/writing-your-thesis-with-r-markdown-1-getting-started/
+
 - R Markdown: The Definitive Guide https://bookdown.org/yihui/rmarkdown/
+
 - R markdown cookbook: https://bookdown.org/yihui/rmarkdown-cookbook/
+
 - https://rmarkdown.rstudio.com
 https://bookdown.org/yihui/rmarkdown/interactive-documents.html
 
