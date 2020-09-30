@@ -64,7 +64,8 @@ penguin_map <- ggplot() +
                      labels = c(expression(italic("P. adelie")),
                                 expression(italic("P. chinstrap")),
                                 expression(italic("P. gentoo")))) +
-  theme_minimal()
+  theme_minimal()  +
+  theme(legend.text.align = 0)
 
 penguin_map
 
