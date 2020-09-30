@@ -11,7 +11,7 @@ output:
   word_document:
     reference_docx: ./templates/template_word.docx
 bibliography: ../citation/referencias.bib
-degree: Mestre em ornitologia
+degree: Mestre em Ornitologia
 department: Biologia
 faculty: Ciências Naturais
 institute: ¡liibre!

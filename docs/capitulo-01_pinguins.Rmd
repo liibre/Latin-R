@@ -3,11 +3,9 @@ title: 'Automatizar partes chatas do manuscrito para poder focar na escrita: um 
   usando dados de pinguins'
 author:
 - Andrea Sánchez-Tapia ^*1*^, Sara R. Mortara^*1*^
-- ^*1*^ ¡liibre!
+- ^*1*^ ¡liibre! laboratório independente de informática da biodiversidade e reprodutibilidade em ecologia
 date: "LatinR, 2020"
 output:
-  word_document: 
-    reference_docx: ../docs/templates/template_word.docx
   html_document:
     df_print: paged
 csl: ../citation/journal-of-ecology.csl

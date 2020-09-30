@@ -43,3 +43,11 @@ vignettes/*.pdf
 # xaringan stuff
 */xaringan-themer.css
 *libs/
+
+# other output formats
+docs/capitulo-01_pinguins.docx
+docs/capitulo-01_pinguins.pdf
+docs/tese.docx
+docs/tese.pdf
+
+
