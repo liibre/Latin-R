@@ -1,0 +1,34 @@
+---
+title: "Uma tese incrível sobre pinguins"
+author:
+- name: Andrea Sánchez-Tapia & Sara Ribeiro Mortara
+date:
+  month: Setembro
+  year: 2020
+output:
+  pdf_document: default
+  html_document: pagedown::thesis_paged
+  word_document:
+    reference_docx: ./templates/template_word.docx
+bibliography: ../citation/referencias.bib
+degree: Mestre em ornitologia
+department: Biologia
+faculty: Ciências Naturais
+institute: ¡liibre!
+location: América Latina
+csl: ../citation/journal-of-ecology.csl
+always_allow_html: yes
+---
+
+```{r setupall, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r child = 'introducao.Rmd'}
+```
+
+```{r child = 'capitulo-01_pinguins.Rmd'}
+```
+
+```{r child = 'capitulo-02.Rmd'}
+```
