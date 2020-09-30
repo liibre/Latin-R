@@ -19,6 +19,7 @@ background-size: 150px
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r xaringan-themer, include = FALSE}
@@ -48,21 +49,68 @@ Bióloga (ESALQ/USP), MSc. Ecologia e Conservação da Biodiversidade (UESC) e D
 
 + __¡liibre!__ Informática da biodiversidade, ciência aberta e reprodutível, ética na ciência de dados, [ciência de dados feminista](http://datafeminism.io/) 
 
-+ R-Ladies Rio de Janeiro 
+
+---
+class: middle
+background-image: url("figs/logo_jbrj.png")
+background-position: 98% 2%
+background-size: 100px
+
+
+### Disciplina _Projetos de análise de dados usando R_
+
+.pull-left[
+
+```{r, out.width= 400}
+knitr::include_graphics("./figs/turma.JPG")
+```
+
+
+```{r, out.width= 150, fig.align = "center"}
+knitr::include_graphics("./figs/chevron.png")
+#knitr::include_graphics("./figs/liibre.png")
+```
+
+]
+
+.pull-right[
+__Boas práticas__ em análise de dados
+
+```{r, out.width=200, fig.align='center'}
+knitr::include_graphics("./figs/rstudio.jpg")
+```
+
+```{r, out.width= 150}
+knitr::include_graphics("./figs/logo-git.png")
+knitr::include_graphics("./figs/GitHub_Logo.png")
+knitr::include_graphics("./figs/btibucket.png")
+knitr::include_graphics("./figs/gitlab-logo-gray-rgb.png")
+```
+
+```{r, out.width= 100}
+knitr::include_graphics("./figs/latex.jpeg")
+knitr::include_graphics("./figs/bibtex.jpeg")
+knitr::include_graphics("./figs/zotero.svg")
+```
+```{r, out.width= 50}
+knitr::include_graphics("./figs/rmarkdown.png")
+```
+
+```{r, out.width= 60, fig.align='center', eval=FALSE}
+knitr::include_graphics("./figs/xaringan.png")
+```
+]
+
 
 ---
 background-image: url("https://raw.githubusercontent.com/LatinR/identidad-visual-latinR/master/LatinR_hex_violeta.png")
-background-position: 25% 27%
-background-size: 203px
+background-position: 98% 2%
+background-size: 204px
 
 ## esta oficina 
 
 
-```{r, echo = FALSE, out.width= 150}
-knitr::include_graphics("figs/chevron.png")
-```
-
-+ Manuscrito acadêmico: tese/dissertação, artigos acadêmicos, relatórios técnicos 
++ Manuscrito acadêmico: tese/dissertação, artigos acadêmicos, <br> relatórios técnicos 
 + Fluxo de trabalho: como se organizar?__*__
 + Formatação de figuras e tabelas__*__
 + Citação__*__
@@ -128,7 +176,7 @@ class: center
 
 #### "typesetting": formatação, composição tipográfica
 
-```{r, echo = F, out.width=700}
+```{r, out.width=700}
 knitr::include_graphics("figs/gut.jpeg")
 ```
 
@@ -190,6 +238,7 @@ background-position: 90% 5%
 
 Um canivete suiço: conversor entre __muitos__ tipos de arquivo  
 
+html, rtf, docx, 
 
 ---
 background-image: url(https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png)
@@ -208,19 +257,19 @@ background-position: 98% 2%
 
 --
 
- + $\LaTeX$ e R: __SWEAVE__ (.Rnw). Output em PDF.
+ + $\LaTeX$ e R: __SWEAVE__ (`.Rnw`). Output em PDF.
 
 --
 
- + markdown e R: __knitr__ (.Rmd). Output em markdown `.md`.
+ + markdown e R: __knitr__ (`.Rmd`). Output em markdown `.md`.
  
 --
 
- + __knitr__ também sabe lidar com .Rnw e gerar .tex $\LaTeX$
+ + __knitr__ também sabe lidar com __.Rnw__ e gerar .tex $\LaTeX$
 
 --
 
-#### A partir do `.md` __rmarkdown usa pandoc__ e consegue gerar muitos formatos de saída.
+#### O pacote __rmarkdown__ usa __knitr__ para executar o código de R e gerar __pandoc__ e consegue gerar muitos formatos de saída.
 
 ---
 background-image: url(https://bookdown.org/yihui/rmarkdown-cookbook/images/workflow.png)
@@ -242,7 +291,7 @@ background-position: 98% 2%
 
 __remedy__ é instalado como um __Addin__ de RStudio
 
-Pode modificar os atalhos de teclado para que fique mais fácil escrever: 
+Você pode modificar os atalhos de teclado para que fique mais fácil escrever: 
 
 `menu > ferramentas > modificar atalhos de teclado`
 
@@ -252,21 +301,6 @@ Pode modificar os atalhos de teclado para que fique mais fácil escrever:
 + `ctrl + 1` -> h1 (cabeçalho 1)
 + `ctrl + 2` -> h1 (cabeçalho 2)
 + `ctrl + r` -> insertar _chunk_ de código!
-
----
-## o fluxo de trabalho para a escrita de um manuscrito
-
-+ Quando você aprende rmarkdown __quer knitar tudo__
-
-+ Poder fazer ≠ dever fazer
-
-+ Alguns contras de knitar tudo:
-
-    - você vai ter que knitar tudo toda vez que precisar mudar algo
-    - extrair uma figura que foi feita dentro de markdown é pouco prático
-    - você não pode trocar de plataforma de escrita facilmente (latex, word)
-
-+ Dica __¡liibre!__: separar a análise da redação
 
 ---
 ## para incluir plots
@@ -294,7 +328,7 @@ Pode modificar os atalhos de teclado para que fique mais fácil escrever:
 #### O único que serve com todos os formatos é 
 
 `````
-```\\
+```
 *knitr::include_graphics(figura)
 ```
 `````
@@ -339,9 +373,31 @@ Resultado
 
 
 ---
-class: center, middle
+## o fluxo de trabalho para a escrita de um manuscrito
 
-# Citação e gestão de bibliografias em rmarkdown (e $\LaTeX$)
++ Quando você aprende rmarkdown __quer knitar tudo__
+
++ Poder fazer ≠ dever fazer
+
++ Alguns __contras__ de knitar tudo:
+
+    - você vai ter que knitar tudo toda vez que precisar mudar algo
+    - extrair uma figura que foi feita dentro de markdown é pouco prático
+    - você não pode trocar de plataforma de escrita facilmente (latex, word)
+
+---
+## as boas práticas ainda aplicam
+
++ cuidar da __estrutura de pastas__
++ __modularizar__ o código
++ usar __caminhos relativos__
++ usar __git__ para controle de versões
++ __separar a análise da redação__ apesar das possibilidades que o markdn oferece
+
+---
+class: center, middle, inverse
+
+# Citação e gestão de bibliografias em rmarkdown (e <huge>$\LaTeX$</huge>)
 
 ---
 ## gestão de bibliografia
@@ -369,7 +425,7 @@ toBibtex(citation("vegan"))
 ---
 ## usando zotero ou mendeley
 
-+ Uma extensão no navegador faz _download_ da citação e do pdf se ele estiver disponível
++ Uma __extensão no navegador__ faz _download_ da citação e do pdf se ele estiver disponível
 
 --
 
@@ -423,30 +479,56 @@ toBibtex(citation("vegan"))
 ## citação no rmarkdown
 
 + No __texto__, a citação é marcada assim: `@sobrenome_palavrachave_ano`
-  + Ex. `[@dignazio_data_2020]` -> (D'ignazio & Klein 2020)
-  + Ex. `@dignazio_data_2020` -> D'ignazio & Klein (2020)
-  + Ex. `[@noble_algorithms_2018, @dignazio_data_2020]` -> (Noble 2018, D'ignazio & Klein 2020)
+
+--
+
+  + Ex. `[@dignazio_data_2020]` -> (D'Ignazio & Klein 2020)
+  + Ex. `@dignazio_data_2020` -> D'Ignazio & Klein (2020)
+  + Ex. `[@noble_algorithms_2018, @dignazio_data_2020]` -> (Noble 2018, D'Ignazio & Klein 2020)
+
+--
 
 + O formato final depende do arquivo de estilo `.csl`
 
+--
+
 + Pré-determinado: as referências completas são inseridas no final do texto
+
+--
 
 + Se precisar colocar em outro lugar (por ex. porque tem apéndices, figuras, tabelas) Incuir `<div id="refs"></div>` 
 
 ---
-print coleção
-print mendeley 
-print JSS
+## nova coleção
+
+```{r}
+knitr::include_graphics("./figs/exportar_bibtex.png")
+```
+
+---
+```{r}
+knitr::include_graphics("./figs/mendeley.png")
+```
+
 
 ---
 class: inverse, middle 
 
-# formatos finais, 
+# formatos finais 
  
----
-## formatos finais requeridos (teses, artigos)
++ Os outputs básicos de markdown: html, PDF, word
++ Tudo relacionado com PDF está relacionado com $\LaTeX$. Templates de artigos.
+Pacote __rticles__. Dá para usar templates de overleaf ou templates externos em documentos de markdown? 
+Dá, mas você tem que modificar seu documento especificamente para esta mistura. 
+Talvez faça mais sentido usar $\LaTeX$ mesmo porque afinal a gente já não vai ter mais medo de fazer isso.
 
-+ novos pacotes relacionados: __bookdown__, __thesisdown__, __rticles__
+---
+# TSS, dissertações e teses 
+
++ $\LaTeX$ com um template da universidade (ex. Overleaf)
++ Pacote __thesisdown__ com o template de alguma universidade: pacote __coppedown__, __ufscdown__. Rmd com cabeçalhos e templates de $\LaTeX$
++ Pacote __pagedown__: bota "páginas" nos outputs de html e portanto é um __passo direto de html a PDF__ (formata com __templates CSS__, e imprime para PDF). Para documentos acadêmicos: `pagedown::thesis_paged()` __Precisa editar o html e o CSS para fazer documentos em outra língua__
+
 
 ---
 ## formatos de artigo
@@ -459,13 +541,19 @@ class: inverse, middle
 
 - Temas novos são adicionados à versão de desenvolvimento: 
 
-
 ```
 remotes::install_github("rstudio/rticles")
 rticles::journals()
 ```
 
 ---
+
+```{r remedy003}
+knitr::include_graphics("./figs/template_JSS.png")
+```
+
+---
+
 
 - Temas e Overleaf 
 ---
@@ -531,6 +619,8 @@ class: inverse, middle
 https://bookdown.org/yihui/rmarkdown/interactive-documents.html
 
 ---
+class: center
+
 # ¡Gracias! 
 
 `r icon::fa("twitter", colour = "#562457")` [@mortarasara](https://twitter.com/mortarasara) 
