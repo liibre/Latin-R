@@ -37,7 +37,7 @@ Neste exercício, usaremos dados abertos coletados por @gorman_ecological_2014 d
 
 Os dados são referentes a medidas de `r nrow(dados)` indivíduos de três espécies de pinguins do gênero *Pygoscelis*. As espécies ocorrem em três ilhas do arquipélago Palmer na Antártica: `r paste(unique(dados$island), collapse = ", ")`. A espécie *P. adelie* é a única que ocorre nas três ilhas e co-ocorre com as demais espécies (Figura 1). 
 
-```{r mapa, fig.cap = "Figura 1. Localização das três espécies de pinguins nas três ilhas do arquipélago Palmer porque um mapa pode fazer parecer mais profissional. Imagens dos pinguins por Allison Horst.}
+```{r mapa, fig.cap = "Figura 1. Localização das três espécies de pinguins nas três ilhas do arquipélago Palmer porque um mapa pode fazer parecer mais profissional. Imagens dos pinguins por Allison Horst."}
 knitr::include_graphics("../figs/figura_01.png")
 ```
 
