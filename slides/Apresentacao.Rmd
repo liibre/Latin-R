@@ -699,15 +699,18 @@ class: inverse, middle
 https://bookdown.org/yihui/rmarkdown/interactive-documents.html
 
 ---
-class: center
+class: center, middle
 
 # ¡Gracias! 
 
 `r icon::fa("twitter", colour = "#562457")` [@mortarasara](https://twitter.com/mortarasara) 
+`r icon::fa("github", colour = "#562457")` [saramortara](https://github.com/saramortara)
+
 `r icon::fa("twitter", colour = "#562457")` [@SanchezTapiaA](https://twitter.com/SanchezTapiaA) 
+`r icon::fa("github", colour = "#562457")` [andreasancheztapia](https://github.com/andreasancheztapia) 
+
+`r icon::fa("github", colour = "#562457")` [¡liibre!](https://github.com/liibre) 
+
 `r icon::fa("twitter", colour = "#562457")` [@rladiesrio](https://twitter.com/rladiesrio) 
-
-`r icon::fa("github", colour = "#562457")` `r icon::fa("gitlab", colour = "#562457")` 
-
 `r icon::fa("r-project", colour = "#562457")` [R-Ladies+ Rio de Janeiro](https://www.meetup.com/pt-BR/rladies-rio/)
 
