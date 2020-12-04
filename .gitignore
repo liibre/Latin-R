@@ -39,10 +39,6 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# xaringan stuff
-*/xaringan-themer.css
-*libs/
-
 # other output formats
 docs/capitulo-01_pinguins.docx
 docs/capitulo-01_pinguins.pdf
