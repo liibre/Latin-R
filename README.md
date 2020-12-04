@@ -9,7 +9,7 @@ Os participantes deverão instalar os pacotes rmarkdown, knitr e kableExtra, rem
     .
     ├── citation/ # arquivos .bib
     ├── data/     # dados
-    ├── docs/     # arquivo .Rmd
+    ├── exemplo/  # arquivo .Rmd
     ├── figs/     # figuras geradas pelos scripts
     ├── output/   # outputs gerados pelos scripts
     └── scripts/  # scripts de R com análises
